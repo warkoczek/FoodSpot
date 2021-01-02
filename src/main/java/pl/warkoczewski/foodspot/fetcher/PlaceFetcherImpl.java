@@ -25,14 +25,15 @@ public class PlaceFetcherImpl implements PlaceFetcher {
         RestTemplate restTemplate = new RestTemplate();
         return Objects.requireNonNull(restTemplate.getForEntity(getApiURL(placeQuery), Place.class).getBody()).getResults();
     }
-    private URI getApiURL(PlaceQuery placeQuery) {
+    public URI getApiURL(PlaceQuery placeQuery) {
         URI uri = null;
         try {
             URIBuilder uriBuilder =  new URIBuilder(BASE_PLACE_SEARCH_GOOGLE_API_URL)
                     .addParameter("location", placeQuery.getLocation().getLat() + ", " + placeQuery.getLocation().getLon())
                     .addParameter("radius", String.valueOf(placeQuery.getRadius()))
                     .addParameter("type", placeQuery.getPlace_type().name())
-                    .addParameter("keyword", placeQuery.getKeyword());
+                    .addParameter("keyword", placeQuery.getKeyword())
+                    .addParameter("key", GOOGLE_APIS_PLACE_SEARCH_KEY);
             uri = uriBuilder.build();
         } catch (URISyntaxException e) {
             e.printStackTrace();
