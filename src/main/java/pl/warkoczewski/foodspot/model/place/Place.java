@@ -13,62 +13,166 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "html_attributions",
-    "next_page_token",
-    "results",
-    "status"
+    "geometry",
+    "icon",
+    "id",
+    "name",
+    "opening_hours",
+    "photos",
+    "place_id",
+    "price_level",
+    "rating",
+    "reference",
+    "types",
+    "vicinity"
 })
 public class Place {
 
-    @JsonProperty("html_attributions")
-    private List<Object> htmlAttributions = null;
-    @JsonProperty("next_page_token")
-    private String nextPageToken;
-    @JsonProperty("results")
-    private List<Result> results = null;
-    @JsonProperty("status")
-    private String status;
+    @JsonProperty("geometry")
+    private Geometry geometry;
+    @JsonProperty("icon")
+    private String icon;
+    @JsonProperty("id")
+    private String id;
+    @JsonProperty("name")
+    private String name;
+    @JsonProperty("opening_hours")
+    private OpeningHours openingHours;
+    @JsonProperty("photos")
+    private List<Photo> photos = null;
+    @JsonProperty("place_id")
+    private String placeId;
+    @JsonProperty("price_level")
+    private Integer priceLevel;
+    @JsonProperty("rating")
+    private Double rating;
+    @JsonProperty("reference")
+    private String reference;
+    @JsonProperty("types")
+    private List<String> types = null;
+    @JsonProperty("vicinity")
+    private String vicinity;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("html_attributions")
-    public List<Object> getHtmlAttributions() {
-        return htmlAttributions;
+    @JsonProperty("geometry")
+    public Geometry getGeometry() {
+        return geometry;
     }
 
-    @JsonProperty("html_attributions")
-    public void setHtmlAttributions(List<Object> htmlAttributions) {
-        this.htmlAttributions = htmlAttributions;
+    @JsonProperty("geometry")
+    public void setGeometry(Geometry geometry) {
+        this.geometry = geometry;
     }
 
-    @JsonProperty("next_page_token")
-    public String getNextPageToken() {
-        return nextPageToken;
+    @JsonProperty("icon")
+    public String getIcon() {
+        return icon;
     }
 
-    @JsonProperty("next_page_token")
-    public void setNextPageToken(String nextPageToken) {
-        this.nextPageToken = nextPageToken;
+    @JsonProperty("icon")
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
-    @JsonProperty("results")
-    public List<Result> getResults() {
-        return results;
+    @JsonProperty("id")
+    public String getId() {
+        return id;
     }
 
-    @JsonProperty("results")
-    public void setResults(List<Result> results) {
-        this.results = results;
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
     }
 
-    @JsonProperty("status")
-    public String getStatus() {
-        return status;
+    @JsonProperty("name")
+    public String getName() {
+        return name;
     }
 
-    @JsonProperty("status")
-    public void setStatus(String status) {
-        this.status = status;
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonProperty("opening_hours")
+    public OpeningHours getOpeningHours() {
+        return openingHours;
+    }
+
+    @JsonProperty("opening_hours")
+    public void setOpeningHours(OpeningHours openingHours) {
+        this.openingHours = openingHours;
+    }
+
+    @JsonProperty("photos")
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    @JsonProperty("photos")
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
+    }
+
+    @JsonProperty("place_id")
+    public String getPlaceId() {
+        return placeId;
+    }
+
+    @JsonProperty("place_id")
+    public void setPlaceId(String placeId) {
+        this.placeId = placeId;
+    }
+
+    @JsonProperty("price_level")
+    public Integer getPriceLevel() {
+        return priceLevel;
+    }
+
+    @JsonProperty("price_level")
+    public void setPriceLevel(Integer priceLevel) {
+        this.priceLevel = priceLevel;
+    }
+
+    @JsonProperty("rating")
+    public Double getRating() {
+        return rating;
+    }
+
+    @JsonProperty("rating")
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    @JsonProperty("reference")
+    public String getReference() {
+        return reference;
+    }
+
+    @JsonProperty("reference")
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    @JsonProperty("types")
+    public List<String> getTypes() {
+        return types;
+    }
+
+    @JsonProperty("types")
+    public void setTypes(List<String> types) {
+        this.types = types;
+    }
+
+    @JsonProperty("vicinity")
+    public String getVicinity() {
+        return vicinity;
+    }
+
+    @JsonProperty("vicinity")
+    public void setVicinity(String vicinity) {
+        this.vicinity = vicinity;
     }
 
     @JsonAnyGetter

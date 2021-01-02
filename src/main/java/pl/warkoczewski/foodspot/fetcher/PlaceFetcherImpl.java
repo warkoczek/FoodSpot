@@ -2,13 +2,10 @@ package pl.warkoczewski.foodspot.fetcher;
 
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
 import pl.warkoczewski.foodspot.model.place.Place;
-import pl.warkoczewski.foodspot.model.place.Result;
+import pl.warkoczewski.foodspot.model.place.Record;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -21,9 +18,9 @@ public class PlaceFetcherImpl implements PlaceFetcher {
     private static final String GOOGLE_APIS_PLACE_SEARCH_KEY = "AIzaSyAzjbfgQXOHrxMwqh7JS253V--zbXJtqmU";
 
     @Override
-    public List<Result> getResults(PlaceQuery placeQuery) {
+    public List<Place> fetchPlaces(PlaceQuery placeQuery) {
         RestTemplate restTemplate = new RestTemplate();
-        return Objects.requireNonNull(restTemplate.getForEntity(getApiURL(placeQuery), Place.class).getBody()).getResults();
+        return Objects.requireNonNull(restTemplate.getForEntity(getApiURL(placeQuery), Record.class).getBody()).getPlaces();
     }
     public URI getApiURL(PlaceQuery placeQuery) {
         URI uri = null;

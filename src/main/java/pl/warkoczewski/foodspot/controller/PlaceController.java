@@ -32,10 +32,10 @@ public class PlaceController {
     @PostMapping("/places")
     public ModelAndView processPlaceQueryForm(@ModelAttribute("placeQueryDTO") PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
         log.debug("Place query data: {}", placeQueryDTO);
-        List<DisplayPlaceDTO> results = placeService.getResults(placeQueryDTO);
+        List<DisplayPlaceDTO> results = placeService.getPlaces(placeQueryDTO);
         modelAndView.setViewName("/place/places");
         modelAndView.addObject("places", results);
-        log.info("Results of place shown");
+        log.info("Places in your range shown");
         return modelAndView;
     }
 
