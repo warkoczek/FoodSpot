@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
 import pl.warkoczewski.foodspot.model.place.Place;
+import pl.warkoczewski.foodspot.model.place.Result;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,10 +23,9 @@ public class PlaceFetcherImpl implements PlaceFetcher {
     private static final String GOOGLE_APIS_PLACE_SEARCH_KEY = "AIzaSyAzjbfgQXOHrxMwqh7JS253V--zbXJtqmU";
 
     @Override
-    public List<Place> getPlaces(PlaceQuery placeQuery) {
+    public List<Result> getResults(PlaceQuery placeQuery) {
         RestTemplate restTemplate = new RestTemplate();
-        return Arrays.stream(Objects.requireNonNull(restTemplate.getForEntity(buildUri(placeQuery), Place[].class)
-                .getBody())).collect(Collectors.toList());
+        return Objects.requireNonNull(restTemplate.getForEntity(buildUri(placeQuery), Place.class).getBody()).getResults();
     }
     private String buildUri(PlaceQuery placeQuery){
         return UriComponentsBuilder.fromHttpUrl(GOOGLE_APIS_PLACE_SEARCH)
