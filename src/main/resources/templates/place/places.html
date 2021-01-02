@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Places</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/place/places}" method="post" th:object="${placeQueryDTO}">
+        <div class="input-group">
+            <label class="control-label" for="lat"
+            >Latitude</label>
+            <input id="lat" class="form-control" type="text" th:field="*{lat}" required autofocus="autofocus" />
+            <span th:if="${#fields.hasErrors()}" th:errors="*{lat}">Incorrect latitude</span>
+        </div>
+        <div class="input-group">
+            <label class="control-label" for="lon"
+            >Longitude</label>
+            <input id="lon" class="form-control" type="text" th:field="*{lon}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{lon}">Incorrect longitude</span>
+        </div><br>
+        <div class="input-group">
+            <label class="control-label" for="radius"
+            >Radius</label>
+            <input id="radius" class="form-control" type="number" th:field="*{radius}" placeholder="max range 50 000 meters"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{radius}">Incorrect radius</span>
+        </div><br>
+        <div class="input-group">
+            <label class="control-label" th:for="place_type"
+            >Place Type</label><br>
+            <!--/*@thymesVar id="place_type" type="pl.warkoczewski.foodspot.model.PLACE_TYPE"*/-->
+            <select th:field="*{place_type}">
+                <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.PLACE_TYPE"*/-->
+                <option th:each="placeType : ${T(pl.warkoczewski.foodspot.model.PLACE_TYPE).values()}" th:text="${placeType}" th:value="${placeType}"></option>
+            </select>
+        </div><br>
+        <div class="input-group">
+            <label class="control-label" for="keyword"
+            >Keyword</label>
+            <input id="keyword" class="form-control" type="text" th:field="*{keyword}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{keyword}">Incorrect keyword</span>
+        </div><br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Request</button>
+        </div>
+    </form>
+</div><br><br><br><br>
+<div class="container">
+    <div th:if="${#lists.isEmpty(places)}">
+        <h2>Sorry, no places</h2>
+    </div>
+
+    <div th:if="${not #lists.isEmpty(places)}">
+        <h2>Places</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="place : ${places}">
+                <td th:text="${place.name.toString()}"></td>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div><br>
+</body>
+</html>
