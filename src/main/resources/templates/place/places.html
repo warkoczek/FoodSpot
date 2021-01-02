@@ -58,12 +58,13 @@
             <thead>
             <tr>
                 <th>Name</th>
+                <th>Address</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="place : ${places}">
                 <td th:text="${place.name.toString()}"></td>
-                </td>
+                <td th:text="${place.address}"></td>
             </tr>
             </tbody>
         </table>

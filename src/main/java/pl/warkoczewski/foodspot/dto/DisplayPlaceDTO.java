@@ -1,10 +1,12 @@
 package pl.warkoczewski.foodspot.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+@AllArgsConstructor
 @Data
 public class DisplayPlaceDTO {
     private String name;
+    private String address;
 
     public DisplayPlaceDTO() {
     }
@@ -13,11 +15,4 @@ public class DisplayPlaceDTO {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
