@@ -48,6 +48,7 @@
     </form>
 </div><br><br><br><br>
 <div class="container">
+    <h1>Placess</h1>
     <div th:if="${not #lists.isEmpty(places)}">
         <h2>Places</h2>
         <table class="table table-striped">
@@ -58,7 +59,7 @@
             </thead>
             <tbody>
             <tr th:each="place : ${places}">
-                <td th:text="${place.name}"></td>
+                <td th:text="${place.name.toString()}"></td>
                 </td>
             </tr>
             </tbody>

@@ -1,15 +1,12 @@
 package pl.warkoczewski.foodspot.service;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.fetcher.PlaceFetcherImpl;
 import pl.warkoczewski.foodspot.model.PLACE_TYPE;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
-import pl.warkoczewski.foodspot.model.place.Place;
 
 import java.util.List;
 import java.util.stream.Collectors;

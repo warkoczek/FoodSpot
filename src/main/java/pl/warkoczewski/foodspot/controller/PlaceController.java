@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.model.PLACE_TYPE;
@@ -29,12 +30,13 @@ public class PlaceController {
         return "/place/places";
     }
     @PostMapping("/places")
-    public String processPlaceQueryForm(@ModelAttribute("placeQueryDTO") PlaceQueryDTO placeQueryDTO, Model model){
+    public ModelAndView processPlaceQueryForm(@ModelAttribute("placeQueryDTO") PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
         log.debug("Place query data: {}", placeQueryDTO);
         List<DisplayPlaceDTO> results = placeService.getResults(placeQueryDTO);
-        model.addAttribute("places", results);
+        modelAndView.setViewName("/place/places");
+        modelAndView.addObject("places", results);
         log.info("Results of place shown");
-        return "/place/places";
+        return modelAndView;
     }
 
 }
