@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/mainFragment :: headFragment}">
+<head th:replace="~{fragments/main :: headFragment}">
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
-<nav th:insert="~{fragments/mainFragment :: navFragment}"></nav>
+<nav th:insert="~{fragments/main :: navFragment}"></nav>
 <br><br><br>
 <h1>Welcome to Food Spot App</h1><br><br><br>
-<footer th:insert="~{fragments/mainFragment :: footerFragment}"></footer>
+<footer th:insert="~{fragments/main :: footerFragment}"></footer>
 </body>
 </html>

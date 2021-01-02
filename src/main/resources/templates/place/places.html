@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/mainFragment :: headFragment}">
+<head th:replace="~{fragments/main :: headFragment}">
     <meta charset="UTF-8">
     <title>Places</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<nav th:insert="~{fragments/mainFragment :: navFragment}"></nav><br><br><br>
+<nav th:insert="~{fragments/main :: navFragment}"></nav><br><br><br>
 <div class="container">
     <form th:action="@{/place/places}" method="post" th:object="${placeQueryDTO}">
         <div class="input-group">
@@ -68,6 +68,6 @@
         </table>
     </div>
 </div><br><br><br>
-<footer th:insert="~{fragments/mainFragment :: footerFragment}"></footer>
+<footer th:insert="~{fragments/main :: footerFragment}"></footer>
 </body>
 </html>
