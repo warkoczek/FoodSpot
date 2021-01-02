@@ -20,28 +20,28 @@
             >Longitude</label>
             <input id="lon" class="form-control" type="text" th:field="*{lon}" required autofocus="autofocus"/>
             <span th:if="${#fields.hasErrors()}" th:errors="*{lon}">Incorrect longitude</span>
-        </div>
+        </div><br>
         <div class="input-group">
             <label class="control-label" for="radius"
             >Radius</label>
             <input id="radius" class="form-control" type="number" th:field="*{radius}" placeholder="max range 50 000 meters"/>
             <span th:if="${#fields.hasErrors()}" th:errors="*{radius}">Incorrect radius</span>
-        </div>
+        </div><br>
         <div class="input-group">
             <label class="control-label" th:for="place_type"
-            >Place Type</label>
+            >Place Type</label><br>
             <!--/*@thymesVar id="place_type" type="pl.warkoczewski.foodspot.model.PLACE_TYPE"*/-->
             <select th:field="*{place_type}">
                 <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.PLACE_TYPE"*/-->
                 <option th:each="placeType : ${T(pl.warkoczewski.foodspot.model.PLACE_TYPE).values()}" th:text="${placeType}" th:value="${placeType}"></option>
             </select>
-        </div>
+        </div><br>
         <div class="input-group">
             <label class="control-label" for="keyword"
             >Keyword</label>
             <input id="keyword" class="form-control" type="text" th:field="*{keyword}" required autofocus="autofocus"/>
             <span th:if="${#fields.hasErrors()}" th:errors="*{keyword}">Incorrect keyword</span>
-        </div>
+        </div><br>
         <div class="form-group">
             <button type="submit" class="btn btn-success">Request</button>
         </div>
