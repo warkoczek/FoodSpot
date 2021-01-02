@@ -6,6 +6,42 @@
     <title>Places</title>
 </head>
 <body>
-Places
+<div class="container">
+    <form th:action="@{/place/places}" method="post" th:object="${placeQueryDTO}">
+        <div class="input-group">
+            <label class="control-label" for="lat"
+            >Latitude</label>
+            <input id="lat" class="form-control" type="text" th:field="*{lat}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{lat}">Incorrect latitude</span>
+        </div>
+        <div class="input-group">
+            <label class="control-label" for="lon"
+            >Longitude</label>
+            <input id="lon" class="form-control" type="text" th:field="*{lon}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{lon}">Incorrect longitude</span>
+        </div>
+        <div class="input-group">
+            <label class="control-label" for="radius"
+            >Radius</label>
+            <input id="radius" class="form-control" type="text" th:field="*{radius}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{radius}">Incorrect radius</span>
+        </div>
+        <div class="input-group">
+            <label class="control-label" for="place_type"
+            >Radius</label>
+            <input id="place_type" class="form-control" type="text" th:field="*{place_type}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{place_type}">Incorrect place type</span>
+        </div>
+        <div class="input-group">
+            <label class="control-label" for="keyword"
+            >Radius</label>
+            <input id="keyword" class="form-control" type="text" th:field="*{keyword}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{keyword}">Incorrect keyword</span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Request</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

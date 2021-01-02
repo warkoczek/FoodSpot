@@ -3,7 +3,11 @@ package pl.warkoczewski.foodspot.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.service.PlaceServiceImpl;
 
 @Controller
@@ -15,8 +19,14 @@ public class PlaceController {
         this.placeService = placeService;
     }
 
-    @GetMapping
+    @GetMapping("/places")
     public String displayGetPlacesPage(Model model){
+        model.addAttribute("placeQueryDTO", new PlaceQueryDTO());
         return "/place/places";
     }
+    @PostMapping("/places")
+    public String processPlaceQueryForm(@ModelAttribute PlaceQueryDTO placeQueryDTO){
+        return "/place/places";
+    }
+
 }
