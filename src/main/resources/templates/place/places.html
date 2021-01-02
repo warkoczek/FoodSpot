@@ -24,7 +24,7 @@
         <div class="input-group">
             <label class="control-label" for="radius"
             >Radius</label>
-            <input id="radius" class="form-control" type="text" th:field="*{radius}" required autofocus="autofocus"/>
+            <input id="radius" class="form-control" type="number" th:field="*{radius}" required autofocus="autofocus"/>
             <span th:if="${#fields.hasErrors()}" th:errors="*{radius}">Incorrect radius</span>
         </div>
         <div class="input-group">
@@ -46,7 +46,7 @@
             <button type="submit" class="btn btn-success">Request</button>
         </div>
     </form>
-</div>
+</div><br><br><br><br>
 <div class="container">
     <div th:if="${not #lists.isEmpty(places)}">
         <h2>Places</h2>

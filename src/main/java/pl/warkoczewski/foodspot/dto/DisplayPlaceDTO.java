@@ -1,5 +1,8 @@
 package pl.warkoczewski.foodspot.dto;
 
+import lombok.Data;
+
+@Data
 public class DisplayPlaceDTO {
     private String name;
 
