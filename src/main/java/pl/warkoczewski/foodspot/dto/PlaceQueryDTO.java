@@ -59,4 +59,15 @@ public class PlaceQueryDTO {
     public void setKeyword(String keyword) {
         this.keyword = keyword;
     }
+
+    @Override
+    public String toString() {
+        return "PlaceQueryDTO{" +
+                "lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", radius=" + radius +
+                ", place_type=" + place_type +
+                ", keyword='" + keyword + '\'' +
+                '}';
+    }
 }

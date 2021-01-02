@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
+import pl.warkoczewski.foodspot.model.PLACE_TYPE;
 import pl.warkoczewski.foodspot.service.PlaceServiceImpl;
 
 @Controller
@@ -22,6 +23,7 @@ public class PlaceController {
     @GetMapping("/places")
     public String displayGetPlacesPage(Model model){
         model.addAttribute("placeQueryDTO", new PlaceQueryDTO());
+        model.addAttribute("placeTypes", PLACE_TYPE.values());
         return "/place/places";
     }
     @PostMapping("/places")
