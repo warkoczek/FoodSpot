@@ -19,25 +19,20 @@ import java.util.List;
 @RequestMapping("/place")@Slf4j
 public class PlaceController {
     private final PlaceServiceImpl placeService;
-
     public PlaceController(PlaceServiceImpl placeService) {
         this.placeService = placeService;
     }
-    @GetMapping("/map")
-    public String displayMapPage(){
-        return "/place/showPlaces";
-    }
     @GetMapping("/places")
-    public String displayGetPlacesPage(Model model){
+    public String displayPlaceQueryPage(Model model){
         model.addAttribute("placeQueryDTO", new PlaceQueryDTO());
         model.addAttribute("placeTypes", PLACE_TYPE.values());
-        return "/place/places";
+        return "/place/foodPlaces";
     }
     @PostMapping("/places")
     public ModelAndView processPlaceQueryForm(@ModelAttribute("placeQueryDTO") PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
         log.debug("Place query data: {}", placeQueryDTO);
         List<DisplayPlaceDTO> results = placeService.getPlaces(placeQueryDTO);
-        modelAndView.setViewName("/place/places");
+        modelAndView.setViewName("/place/foodPlaces");
         modelAndView.addObject("places", results);
         log.info("Places in your range shown");
         return modelAndView;
