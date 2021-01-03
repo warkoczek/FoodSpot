@@ -2,6 +2,7 @@ package pl.warkoczewski.foodspot.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 @AllArgsConstructor
 @Data
 public class DisplayPlaceDTO {
