@@ -42,24 +42,6 @@
         </div>
     </div>
 </nav>
-<div th:fragment="mapFragment">
-    <div id="mapid"></div>
-    <script th:inline="javascript">
-        var places = [[${places}]];
-        var map = L.map('mapid').setView([51.505, -0.09], 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        places.forEach(value => {
-            L.marker([value.lon, value.lat]).addTo(map)
-                .bindPopup(value.name)
-                .openPopup();
-        });
-
-    </script>
-</div>
 <footer th:fragment="footerFragment">Made by Adam Warkoczewski</footer>
 </body>
 </html>
