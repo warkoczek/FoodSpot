@@ -13,8 +13,4 @@ public class DisplayPlaceDTO {
     public DisplayPlaceDTO() {
     }
 
-    public DisplayPlaceDTO(String name) {
-        this.name = name;
-    }
-
 }

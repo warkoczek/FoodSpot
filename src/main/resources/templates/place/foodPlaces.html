@@ -9,6 +9,7 @@
 <body>
 <nav th:insert="~{fragments/main :: navFragment}"></nav><br><br><br>
 <div class="container">
+    <h2>Look for nearby food places</h2>
     <form th:action="@{/place/places}" method="post" th:object="${placeQueryDTO}">
         <div class="input-group">
             <label class="control-label" for="lat"
