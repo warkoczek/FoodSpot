@@ -23,6 +23,10 @@ public class PlaceController {
     public PlaceController(PlaceServiceImpl placeService) {
         this.placeService = placeService;
     }
+    @GetMapping("/map")
+    public String displayMapPage(){
+        return "/place/showPlaces";
+    }
     @GetMapping("/places")
     public String displayGetPlacesPage(Model model){
         model.addAttribute("placeQueryDTO", new PlaceQueryDTO());
