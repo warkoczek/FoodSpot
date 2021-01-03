@@ -5,8 +5,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class DisplayPlaceDTO {
-    private String lon;
-    private String lat;
+    private Double lon;
+    private Double lat;
     private String name;
     private String address;
 
