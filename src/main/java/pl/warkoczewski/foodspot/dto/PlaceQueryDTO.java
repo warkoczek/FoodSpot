@@ -1,9 +1,13 @@
 package pl.warkoczewski.foodspot.dto;
 
 import pl.warkoczewski.foodspot.model.PLACE_TYPE;
+import pl.warkoczewski.foodspot.validation.constraints.Latitude;
+import pl.warkoczewski.foodspot.validation.constraints.Longitude;
 
 public class PlaceQueryDTO {
+    @Latitude
     private String lat;
+    @Longitude
     private String lon;
     private Long radius;
     private PLACE_TYPE place_type;

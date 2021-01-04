@@ -13,6 +13,7 @@ import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.model.PLACE_TYPE;
 import pl.warkoczewski.foodspot.service.PlaceServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -29,7 +30,7 @@ public class PlaceController {
         return "/place/foodPlaces";
     }
     @PostMapping("/places")
-    public ModelAndView processPlaceQueryForm(@ModelAttribute("placeQueryDTO") PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
+    public ModelAndView processPlaceQueryForm(@Valid @ModelAttribute("placeQueryDTO") PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
         log.debug("Place query data: {}", placeQueryDTO);
         List<DisplayPlaceDTO> results = placeService.getPlaces(placeQueryDTO);
         modelAndView.setViewName("/place/foodPlaces");
