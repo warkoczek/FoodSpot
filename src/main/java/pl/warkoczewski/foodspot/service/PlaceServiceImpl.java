@@ -24,8 +24,8 @@ public class PlaceServiceImpl implements PlaceService {
     public List<DisplayPlaceDTO> getPlaces(PlaceQueryDTO placeQueryDTO) {
         return placeFetcher.fetchPlaces(modelMapper.map(placeQueryDTO, PlaceQuery.class))
                 .stream()
-                .map(place -> new DisplayPlaceDTO(BigDecimal.valueOf(place.getGeometry().getLocation().getLat())
-                        , BigDecimal.valueOf(place.getGeometry().getLocation().getLng())
+                .map(place -> new DisplayPlaceDTO(place.getGeometry().getLocation().getLat()
+                        , place.getGeometry().getLocation().getLng()
                         , place.getName()
                         , place.getVicinity()))
                 .collect(Collectors.toList());

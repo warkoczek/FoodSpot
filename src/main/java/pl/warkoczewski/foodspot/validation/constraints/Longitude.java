@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD,ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Longitude {
-    String message() default "Longitude range is -180 to 180";
+    String message() default " Longitude range is -180 to 180";
 
     Class<?>[] groups() default {};
 

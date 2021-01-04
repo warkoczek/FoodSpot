@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD,ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Latitude {
-    String message() default "Latitude range is -90 to 90";
+    String message() default " Latitude range is -90 to 90";
 
     Class<?>[] groups() default {};
 

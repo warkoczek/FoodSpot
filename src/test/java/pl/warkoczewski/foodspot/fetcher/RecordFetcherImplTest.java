@@ -25,7 +25,7 @@ class RecordFetcherImplTest {
 
     @Test
     void getResults() {
-        PlaceQueryDTO placeQueryDTO = new PlaceQueryDTO("52.4064", "16.9252"
+        PlaceQueryDTO placeQueryDTO = new PlaceQueryDTO(52.4064, 16.9252
                 , 15000l, PLACE_TYPE.RESTAURANT, "Italian");
     }
 

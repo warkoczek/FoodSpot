@@ -10,7 +10,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.math.BigDecimal;
 @Component
 @Scope("prototype")
-public class LatitudeValidatorForBigDecimal implements ConstraintValidator<Latitude, BigDecimal> {
+public class LatitudeValidatorForBigDecimal implements ConstraintValidator<Latitude, Double> {
     private final ValidationServiceImpl validationService;
 
     public LatitudeValidatorForBigDecimal(ValidationServiceImpl validationService) {
@@ -21,7 +21,7 @@ public class LatitudeValidatorForBigDecimal implements ConstraintValidator<Latit
     public void initialize(Latitude constraintAnnotation) {
     }
     @Override
-    public boolean isValid(BigDecimal latitude, ConstraintValidatorContext context) {
+    public boolean isValid(Double latitude, ConstraintValidatorContext context) {
         return validationService.isLatitudeBetween(latitude);
     }
 

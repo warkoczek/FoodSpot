@@ -15,13 +15,13 @@
             <label class="control-label" for="lat"
             >Latitude</label>
             <input id="lat" class="form-control" type="text" th:field="*{lat}" required autofocus="autofocus" />
-            <span th:if="${#fields.hasErrors()}" th:errors="*{lat}">Incorrect latitude</span>
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{lat}">Incorrect latitude</span>
         </div>
         <div class="input-group">
             <label class="control-label" for="lon"
             >Longitude</label>
             <input id="lon" class="form-control" type="text" th:field="*{lon}" required autofocus="autofocus"/>
-            <span th:if="${#fields.hasErrors()}" th:errors="*{lon}">Incorrect longitude</span>
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{lon}">Incorrect longitude</span>
         </div><br>
         <div class="input-group">
             <label class="control-label" for="radius"

@@ -3,6 +3,7 @@ package pl.warkoczewski.foodspot.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,13 +31,15 @@ public class PlaceController {
         return "/place/foodPlaces";
     }
     @PostMapping("/places")
-    public ModelAndView processPlaceQueryForm(@ModelAttribute("placeQueryDTO") @Valid PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
+    public String processPlaceQueryForm(@ModelAttribute("placeQueryDTO") @Valid PlaceQueryDTO placeQueryDTO, BindingResult bindingResult, Model model){
         log.debug("Place query data: {}", placeQueryDTO);
+        if(bindingResult.hasErrors()){
+            return "/place/foodPlaces";
+        }
         List<DisplayPlaceDTO> results = placeService.getPlaces(placeQueryDTO);
-        modelAndView.setViewName("/place/foodPlaces");
-        modelAndView.addObject("places", results);
+        model.addAttribute("places", results);
         log.info("Places in your range shown");
-        return modelAndView;
+        return "/place/foodPlaces";
     }
 
 }
