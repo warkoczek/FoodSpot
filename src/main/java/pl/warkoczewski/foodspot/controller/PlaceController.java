@@ -30,7 +30,7 @@ public class PlaceController {
         return "/place/foodPlaces";
     }
     @PostMapping("/places")
-    public ModelAndView processPlaceQueryForm(@Valid @ModelAttribute("placeQueryDTO") PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
+    public ModelAndView processPlaceQueryForm(@ModelAttribute("placeQueryDTO") @Valid PlaceQueryDTO placeQueryDTO, ModelAndView modelAndView){
         log.debug("Place query data: {}", placeQueryDTO);
         List<DisplayPlaceDTO> results = placeService.getPlaces(placeQueryDTO);
         modelAndView.setViewName("/place/foodPlaces");
