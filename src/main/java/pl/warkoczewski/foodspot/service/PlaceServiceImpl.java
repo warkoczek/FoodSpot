@@ -6,8 +6,6 @@ import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.fetcher.PlaceFetcherImpl;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
-
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 

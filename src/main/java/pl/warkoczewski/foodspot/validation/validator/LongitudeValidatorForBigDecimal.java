@@ -7,7 +7,6 @@ import pl.warkoczewski.foodspot.validation.constraints.Longitude;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.math.BigDecimal;
 @Component
 @Scope("prototype")
 public class LongitudeValidatorForBigDecimal implements ConstraintValidator<Longitude, Double> {

@@ -7,7 +7,7 @@ import pl.warkoczewski.foodspot.validation.constraints.Latitude;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.math.BigDecimal;
+
 @Component
 @Scope("prototype")
 public class LatitudeValidatorForBigDecimal implements ConstraintValidator<Latitude, Double> {
