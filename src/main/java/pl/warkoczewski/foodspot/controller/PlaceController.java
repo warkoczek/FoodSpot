@@ -27,18 +27,18 @@ public class PlaceController {
     public String displayPlaceQueryPage(Model model){
         model.addAttribute("placeQueryDTO", new PlaceQueryDTO());
         model.addAttribute("placeTypes", PLACE_TYPE.values());
-        return "/place/foodPlaces";
+        return "place/foodPlaces";
     }
     @PostMapping("/places")
     public String processPlaceQueryForm(@ModelAttribute("placeQueryDTO") @Valid PlaceQueryDTO placeQueryDTO, BindingResult bindingResult, Model model){
         log.debug("Place query data: {}", placeQueryDTO);
         if(bindingResult.hasErrors()){
-            return "/place/foodPlaces";
+            return "place/foodPlaces";
         }
         List<DisplayPlaceDTO> results = placeService.getPlaces(placeQueryDTO);
         model.addAttribute("places", results);
         log.info("Places in your range shown");
-        return "/place/foodPlaces";
+        return "place/foodPlaces";
     }
 
 }
