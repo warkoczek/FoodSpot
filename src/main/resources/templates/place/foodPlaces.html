@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragments/main :: headFragment}">
     <meta charset="UTF-8">
     <title>Places</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
+<nav th:insert="~{fragments/main :: navFragment}"></nav><br><br><br>
 <div class="container">
+    <h2>Look for nearby food places</h2>
     <form th:action="@{/place/places}" method="post" th:object="${placeQueryDTO}">
         <div class="input-group">
             <label class="control-label" for="lat"
             >Latitude</label>
             <input id="lat" class="form-control" type="text" th:field="*{lat}" required autofocus="autofocus" />
-            <span th:if="${#fields.hasErrors()}" th:errors="*{lat}">Incorrect latitude</span>
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{lat}">Incorrect latitude</span>
         </div>
         <div class="input-group">
             <label class="control-label" for="lon"
             >Longitude</label>
             <input id="lon" class="form-control" type="text" th:field="*{lon}" required autofocus="autofocus"/>
-            <span th:if="${#fields.hasErrors()}" th:errors="*{lon}">Incorrect longitude</span>
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{lon}">Incorrect longitude</span>
         </div><br>
         <div class="input-group">
             <label class="control-label" for="radius"
@@ -46,28 +48,47 @@
             <button type="submit" class="btn btn-success">Request</button>
         </div>
     </form>
-</div><br><br><br><br>
+</div><br>
+<!--location map -->
+<div>
+    <div id="mapid"></div>
+    <script th:inline="javascript">
+        var spots = [[${places}]];
+        var map = L.map('mapid').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        spots.forEach(value => {
+            L.marker([value.lon, value.lat]).addTo(map)
+                .bindPopup(value.name)
+                .openPopup();
+        });
+    </script>
+</div>
 <div class="container">
-    <div th:if="${#lists.isEmpty(places)}">
-        <h2>Sorry, no places</h2>
-    </div>
+    <h2>Found Places:</h2>
 
     <div th:if="${not #lists.isEmpty(places)}">
-        <h2>Places</h2>
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>Name</th>
+                <th>Address</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="place : ${places}">
                 <td th:text="${place.name.toString()}"></td>
-                </td>
+                <td th:text="${place.address}"></td>
             </tr>
             </tbody>
         </table>
     </div>
-</div><br>
+
+</div>
+<br><br><br>
+<footer th:insert="~{fragments/main :: footerFragment}"></footer>
 </body>
 </html>

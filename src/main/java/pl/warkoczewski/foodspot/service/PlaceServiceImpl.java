@@ -6,7 +6,6 @@ import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.fetcher.PlaceFetcherImpl;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +22,10 @@ public class PlaceServiceImpl implements PlaceService {
     public List<DisplayPlaceDTO> getPlaces(PlaceQueryDTO placeQueryDTO) {
         return placeFetcher.fetchPlaces(modelMapper.map(placeQueryDTO, PlaceQuery.class))
                 .stream()
-                .map(result -> new DisplayPlaceDTO(result.getName())).collect(Collectors.toList());
+                .map(place -> new DisplayPlaceDTO(place.getGeometry().getLocation().getLat()
+                        , place.getGeometry().getLocation().getLng()
+                        , place.getName()
+                        , place.getVicinity()))
+                .collect(Collectors.toList());
     }
 }

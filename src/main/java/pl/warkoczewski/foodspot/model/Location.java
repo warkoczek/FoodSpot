@@ -1,30 +1,15 @@
 package pl.warkoczewski.foodspot.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
 public class Location {
-    private String lat;
-    private String lon;
+    private Double lat;
+    private Double lon;
 
     public Location() {
     }
 
-    public Location(String lat, String lon) {
-        this.lat = lat;
-        this.lon = lon;
-    }
-
-    public String getLat() {
-        return lat;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-
-    public String getLon() {
-        return lon;
-    }
-
-    public void setLon(String lon) {
-        this.lon = lon;
-    }
 }
