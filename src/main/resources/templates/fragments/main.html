@@ -24,6 +24,7 @@
     </style>
 </head>
 <body>
+
 <nav th:fragment="navFragment" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -35,13 +36,21 @@
                     class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#" th:href="@{/home/homePage}">Home</a>
-            <a class="navbar-brand" href="#" th:href="@{/place/places}">Search</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="#" th:href="@{/searchPlaces/byCoordinates}">Search</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
             <a class="navbar-brand" href="#" th:href="@{/register/registrationForm}">Register</a>
             <a class="navbar-brand" href="#" th:href="@{/register/login}">Log in</a>
             <a class="navbar-brand" href="#" th:href="@{/contact/contactForm}">Contact us</a>
+            </ul>
         </div>
     </div>
 </nav>
+
 <footer th:fragment="footerFragment">Made by Adam Warkoczewski</footer>
 </body>
 </html>
