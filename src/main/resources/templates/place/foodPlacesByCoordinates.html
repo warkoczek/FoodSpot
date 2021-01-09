@@ -16,7 +16,7 @@
             >Latitude</label>
             <input id="lat" class="form-control" type="text" th:field="*{lat}" required autofocus="autofocus" />
             <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{lat}">Incorrect latitude</span>
-        </div>
+        </div><br>
         <div class="input-group">
             <label class="control-label" for="lon" th:text="#{pages.places.form.placeQueryDTO.longitude}"
             >Longitude</label>
