@@ -8,7 +8,7 @@
 <body>
 <nav th:insert="~{fragments/main :: navFragment}"></nav>
 <br><br><br>
-<h1>Welcome to Food Spot App</h1><br><br><br>
+<h1 th:text="#{pages.home.text.welcome}">Welcome to Food Spot App</h1><br><br><br>
 <footer th:insert="~{fragments/main :: footerFragment}"></footer>
 </body>
 </html>
