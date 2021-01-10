@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.model.PLACE_TYPE;
-import pl.warkoczewski.foodspot.service.PlaceServiceImpl;
+import pl.warkoczewski.foodspot.service.place.PlaceServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;

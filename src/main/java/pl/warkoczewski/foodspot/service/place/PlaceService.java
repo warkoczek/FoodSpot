@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.service;
+package pl.warkoczewski.foodspot.service.place;
 
 import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
