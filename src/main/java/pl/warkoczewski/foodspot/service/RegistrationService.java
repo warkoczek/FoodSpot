@@ -1,7 +1,9 @@
 package pl.warkoczewski.foodspot.service;
 
 import org.springframework.stereotype.Service;
+import pl.warkoczewski.foodspot.dto.RegistrationDataDTO;
 
-@Service
-public class RegistrationService {
+
+public interface RegistrationService {
+    public void register(RegistrationDataDTO registrationDataDTO);
 }
