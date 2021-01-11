@@ -1,11 +1,16 @@
 package pl.warkoczewski.foodspot.model.entity;
 
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import lombok.*;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
+@MappedSuperclass
+@NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @ToString @EqualsAndHashCode(of = "id")
 public class BaseUser implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
