@@ -15,7 +15,7 @@ public class RegistrationController {
         return "/register/registrationForm";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/signIn")
     public String displayHomePage(){
         return "/register/registrationForm";
     }
