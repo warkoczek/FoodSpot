@@ -4,7 +4,10 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -20,4 +23,6 @@ public class User extends BaseEntity {
     private Boolean active = Boolean.FALSE;
     @Column(nullable = false)
     private String password;
+    @ManyToMany
+    private Set<Role> roles = new HashSet<>();
 }
