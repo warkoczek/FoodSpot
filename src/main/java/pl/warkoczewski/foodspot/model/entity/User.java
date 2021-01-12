@@ -3,8 +3,11 @@ package pl.warkoczewski.foodspot.model.entity;
 import lombok.*;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@javax.persistence.Entity
+@Entity
+@Table(name = "users")
 @Getter@Setter
 @NoArgsConstructor @AllArgsConstructor
 @ToString(exclude = "password", callSuper = true)
