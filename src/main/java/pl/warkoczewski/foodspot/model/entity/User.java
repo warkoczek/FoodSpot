@@ -1,17 +1,14 @@
 package pl.warkoczewski.foodspot.model.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
-@Getter
-@Setter
-@ToString(exclude = "password", callSuper = true)
+@Data
+@NoArgsConstructor @AllArgsConstructor
 public class User extends BaseUser {
 
     private String username;

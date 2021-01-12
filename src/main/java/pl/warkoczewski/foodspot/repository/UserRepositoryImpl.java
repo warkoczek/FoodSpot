@@ -2,7 +2,6 @@ package pl.warkoczewski.foodspot.repository;
 
 import org.springframework.stereotype.Repository;
 
-
-public interface UserRepository {
+@Repository
+public class UserRepositoryImpl implements UserRepository {
 }
-

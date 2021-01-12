@@ -2,7 +2,11 @@ package pl.warkoczewski.foodspot.model.entity;
 
 import lombok.*;
 
-import javax.persistence.*;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 @MappedSuperclass
@@ -15,12 +19,12 @@ public class BaseUser implements Serializable {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
 
-    @PrePersist
+
     public void prePersist(){
         this.createdOn = LocalDateTime.now();
         this.updatedOn = null;
     }
-    @PreUpdate
+
     public void preUpdate(){
         this.updatedOn = LocalDateTime.now();
     }
