@@ -27,8 +27,11 @@ public class RegistrationController {
     }
     @PostMapping("/registrationForm")
     public String processRegistrationForm(@ModelAttribute RegistrationDataDTO registrationDataDTO, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            return "/register/registrationForm";
+        }
         registrationService.register(registrationDataDTO);
-        return "/register/registrationForm";
+        return "/register/registrationSuccess";
     }
 
     @GetMapping("/signIn")
