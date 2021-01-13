@@ -5,7 +5,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.warkoczewski.foodspot.dto.RegistrationDataDTO;
-import pl.warkoczewski.foodspot.model.entity.Role;
 import pl.warkoczewski.foodspot.model.entity.User;
 import pl.warkoczewski.foodspot.repository.RoleRepository;
 import pl.warkoczewski.foodspot.repository.UserRepository;
