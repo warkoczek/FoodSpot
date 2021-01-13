@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.warkoczewski.foodspot.dto.RegistrationDataDTO;
-import pl.warkoczewski.foodspot.service.ContactService;
 import pl.warkoczewski.foodspot.service.registration.RegistrationServiceImpl;
 
 @Controller
