@@ -24,8 +24,8 @@
     </style>
 </head>
 <body>
-
-<nav th:fragment="navFragment" class="navbar navbar-inverse navbar-fixed-top">
+<header th:fragment="headerFragment">
+<nav  class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="submit" class="navbar-toggle collapsed"
@@ -43,9 +43,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.register}" th:href="@{/register/registrationForm}">Register</a></li>
-                <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.login}" th:href="@{/register/login}">Log in</a></li>
-                <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.logout}" th:href="@{/register/logout}">Log out</a></li>
+                <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.signOut}" th:href="@{/home/homePage}">Sign out</a></li>
                 <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.contact}" th:href="@{/contact/contactForm}">Contact us</a></li>
 
                 <li><a class="navbar-brand" href="#" th:href="@{?lang=en}">English</a></li>
@@ -56,6 +54,7 @@
         </div>
     </div>
 </nav>
+</header>
 
 <footer th:fragment="footerFragment">Made by Adam Warkoczewski</footer>
 </body>

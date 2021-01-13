@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/toSignIn :: headFragment}">
     <meta charset="UTF-8">
     <title>Registration/Login</title>
 </head>
 <body>
-Registration Login
+<header th:insert="~{fragments/toSignIn :: headerFragment}"></header><br><br><br>
+<div class="container">
+    <h2 th:text="#{pages.register.form.registrationForm}">Registration Form</h2><br>
+<form th:action="@{/register/registrationForm}" th:method="post" th:object="${registrationData}">
+    <div class="input-group">
+        <label class="control-label" for="username" th:text="#{pages.register.form.registrationDataDTO.username}"
+        >Username</label>
+        <input id="username" class="form-control" type="text" th:field="*{username}" required autofocus="autofocus"/>
+        <span th:if="${#fields.hasErrors()}" th:errors="*{username}">Incorrect username</span>
+    </div><br>
+    <div class="input-group">
+        <label class="control-label" for="email" th:text="#{pages.register.form.registrationDataDTO.email}"
+        >Username</label>
+        <input id="email" class="form-control" type="text" th:field="*{email}" required autofocus="autofocus"/>
+        <span th:if="${#fields.hasErrors()}" th:errors="*{email}">Incorrect email</span>
+    </div><br>
+    <div class="input-group">
+        <label class="control-label" for="password" th:text="#{pages.register.form.registrationDataDTO.password}"
+        >Username</label>
+        <input id="password" class="form-control" type="text" th:field="*{password}" required autofocus="autofocus"/>
+        <span th:if="${#fields.hasErrors()}" th:errors="*{password}">Incorrect password</span>
+    </div><br>
+    <div class="input-group">
+        <label class="control-label" for="rePassword" th:text="#{pages.register.form.registrationDataDTO.rePassword}"
+        >Username</label>
+        <input id="rePassword" class="form-control" type="text" th:field="*{rePassword}" required autofocus="autofocus"/>
+        <span th:if="${#fields.hasErrors()}" th:errors="*{rePassword}">Incorrect rePassword</span>
+    </div><br>
+    <div class="form-group">
+        <button type="submit"  th:text="#{pages.register.form.button.register}" class="btn btn-success">Register</button>
+    </div>
+</form>
+</div>
+<footer th:insert="~{fragments/toSignIn :: footerFragment}"></footer>
 </body>
 </html>

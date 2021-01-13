@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/main :: headFragment}">
+<head th:replace="~{fragments/signedIn :: headFragment}">
     <meta charset="UTF-8">
     <title>Places</title>
 
 </head>
 <body>
-<nav th:insert="~{fragments/main :: navFragment}"></nav><br><br><br>
+<header th:insert="~{fragments/signedIn :: headerFragment}"></header><br><br><br>
 <div class="container">
     <h2 th:text="#{pages.places.title.nearby}">Food nearby me:</h2><br>
     <form th:action="@{/searchPlaces/byCoordinates}" method="post" th:object="${placeQueryDTO}">
@@ -89,6 +89,6 @@
 
 </div>
 <br><br><br>
-<footer th:insert="~{fragments/main :: footerFragment}"></footer>
+<footer th:insert="~{fragments/signedIn :: footerFragment}"></footer>
 </body>
 </html>
