@@ -1,12 +1,13 @@
 package pl.warkoczewski.foodspot.model.entity;
 
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-@MappedSuperclass
+@MappedSuperclass @Slf4j
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter @ToString @EqualsAndHashCode(of = "id")
 public class BaseEntity implements Serializable {
@@ -18,6 +19,7 @@ public class BaseEntity implements Serializable {
 
     @PrePersist
     public void prePersist(){
+        log.info("Date of creation set before persisting entity to the db: {}");
         this.createdOn = LocalDateTime.now();
         this.updatedOn = null;
     }
