@@ -9,6 +9,7 @@
 <body>
 <header th:insert="~{fragments/signedIn :: headerFragment}"></header><br><br><br>
 <div class="container">
+    <h1 th:text="${authenticatedUser}"></h1>
     <h2 th:text="#{pages.places.title.nearby}">Food nearby me:</h2><br>
     <form th:action="@{/searchPlaces/byCoordinates}" method="post" th:object="${placeQueryDTO}">
         <div class="input-group">

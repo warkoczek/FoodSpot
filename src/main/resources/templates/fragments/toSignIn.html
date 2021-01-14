@@ -29,6 +29,9 @@
                 <a class="navbar-brand" href="#" th:text="#{pages.menu.links.main}" th:href="@{/home/homePage}">Home</a>
             </div>
             <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.search}" th:href="@{/searchPlaces/byCoordinates}">Search</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.signIn}" th:href="@{/register/signIn}">Sign in</a></li>
                     <li><a class="navbar-brand" href="#" th:text="#{pages.menu.links.contact}" th:href="@{/contact/contactForm}">Contact us</a></li>
