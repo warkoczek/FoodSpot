@@ -26,10 +26,10 @@ public class PlaceController {
         this.placeService = placeService;
     }
     @GetMapping("/byCoordinates")
-    public String displayPlaceQueryPage(Model model, Principal principal){
+    public String displayPlaceQueryPage(Model model){
         model.addAttribute("placeQueryDTO", new PlaceQueryDTO());
         model.addAttribute("placeTypes", PLACE_TYPE.values());
-        model.addAttribute("authenticatedUser", Messages.HI_USER + principal.getName());
+        //model.addAttribute("authenticatedUser", Messages.HI_USER + principal.getName());
         return "place/foodPlacesByCoordinates";
     }
     @PostMapping("/byCoordinates")
