@@ -30,7 +30,7 @@ public class RegistrationController {
             return "/register/registrationForm";
         }
         registrationService.register(registrationDataDTO);
-        return "/register/registrationSuccess";
+        return "redirect:/sign_in";
     }
 
 

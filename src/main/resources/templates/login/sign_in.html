@@ -6,7 +6,7 @@
     <title>Sign in</title>
 </head>
 <body>
-<header th:insert="~{fragments/home :: headerFragment}"></header>
+<header th:insert="~{fragments/home :: headerFragment}"></header><br><br><br>
 <div class="container">
     <h2 th:text="#{pages.register.form.sign_in}">Please sign in:</h2><br>
     <form th:action="@{/sign_in}" th:method="post" th:object="${signInData}">
@@ -27,6 +27,6 @@
         </div>
     </form>
 </div>
-<footer th:insert="~{fragments/footer :: footerFragment}"></footer>
+<footer th:insert="~{fragments/home :: footerFragment}"></footer>
 </body>
 </html>

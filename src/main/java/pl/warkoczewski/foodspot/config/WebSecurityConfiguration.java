@@ -25,7 +25,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
                 .antMatchers("/searchPlaces/byCoordinates").permitAll()
                 .and()
-                .formLogin().permitAll();
+                .formLogin().loginPage("/sign_in").permitAll();
     }
 
 }
