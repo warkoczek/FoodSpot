@@ -33,8 +33,5 @@ public class RegistrationController {
         return "/register/registrationSuccess";
     }
 
-    @GetMapping("/signIn")
-    public String displayHomePage(){
-        return "/register/registrationForm";
-    }
+
 }
