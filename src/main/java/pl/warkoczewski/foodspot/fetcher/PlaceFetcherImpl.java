@@ -20,9 +20,9 @@ public class PlaceFetcherImpl implements PlaceFetcher {
     @Override
     public List<Place> fetchPlaces(PlaceQuery placeQuery) {
         RestTemplate restTemplate = new RestTemplate();
-        return Objects.requireNonNull(restTemplate.getForEntity(getApiURL(placeQuery), Record.class).getBody()).getPlaces();
+        return Objects.requireNonNull(restTemplate.getForEntity(getApiURI(placeQuery), Record.class).getBody()).getPlaces();
     }
-    public URI getApiURL(PlaceQuery placeQuery) {
+    public URI getApiURI(PlaceQuery placeQuery) {
         URI uri = null;
         try {
             URIBuilder uriBuilder =  new URIBuilder(BASE_PLACE_SEARCH_GOOGLE_API_URL)

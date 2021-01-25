@@ -24,7 +24,7 @@ class PlaceFetcherImplTest {
     }
 
     @Test
-    void getApiURL_Should_Return_URI() throws URISyntaxException {
+    void getApiURI_Should_Return_URI_As_Expected() throws URISyntaxException {
         //given
         Location location = new Location(52.0d, 16.0d);
         PlaceQuery placeQuery = new PlaceQuery(location,15000L, PLACE_TYPE.RESTAURANT,"Italian");
