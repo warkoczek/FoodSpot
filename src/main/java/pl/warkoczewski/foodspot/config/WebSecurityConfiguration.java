@@ -23,9 +23,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/searchPlaces/byCoordinates").permitAll()
-                .and()
-                .formLogin().loginPage("/sign_in").permitAll();
+                    .antMatchers("/searchPlaces/byCoordinates").permitAll()
+                    .and()
+                .formLogin()
+                    .loginPage("/sign_in")
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                    .defaultSuccessUrl("/searchPlaces/byCoordinates")
+        ;
     }
 
 }

@@ -11,14 +11,14 @@
     <h2 th:text="#{pages.register.form.sign_in}">Please sign in:</h2><br>
     <form th:action="@{/sign_in}" th:method="post" th:object="${signInData}">
         <div class="input-group">
-            <label class="control-label" for="username" th:text="#{pages.register.form.registrationDataDTO.password}"
+            <label class="control-label" for="username" th:text="#{pages.sign_in.form.username}"
             >Username</label>
             <input id="username" class="form-control" type="text" th:field="*{username}" required autofocus="autofocus"/>
             <span th:if="${#fields.hasErrors()}" th:errors="*{username}">Incorrect username</span>
         </div><br>
         <div class="input-group">
-            <label class="control-label" for="password" th:text="#{pages.register.form.registrationDataDTO.rePassword}"
-            >Username</label>
+            <label class="control-label" for="password" th:text="#{pages.sign_in.form.password}"
+            >Password</label>
             <input id="password" class="form-control" type="text" th:field="*{password}" required autofocus="autofocus"/>
             <span th:if="${#fields.hasErrors()}" th:errors="*{password}">Incorrect password</span>
         </div><br>

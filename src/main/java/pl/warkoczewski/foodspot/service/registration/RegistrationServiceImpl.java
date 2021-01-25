@@ -24,8 +24,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         this.roleRepository = roleRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
-        RegistrationDataDTO registrationDataDTO = new RegistrationDataDTO("warkocz", "awarkoczewski@yahoo.com", "123", "123");
-        register(registrationDataDTO);
+
     }
 
     @Override
@@ -33,9 +32,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         log.debug("Registration data to create user: {}", registrationDataDTO);
         User user = modelMapper.map(registrationDataDTO, User.class);
         log.debug("User after mapping: {}", user);
-        user.setActive(Boolean.TRUE);
         user.setPassword(passwordEncoder.encode(registrationDataDTO.getPassword()));
-        user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
         log.debug("User before saving: {}", user);
         userRepository.save(user);
         log.debug("User after saving: {}", user);

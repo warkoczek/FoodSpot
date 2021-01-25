@@ -19,7 +19,7 @@ public class BaseEntity implements Serializable {
 
     @PrePersist
     public void prePersist(){
-        log.info("Date of creation set before persisting entity to the db: {}");
+        log.info("Date of creation set before persisting entity to the db: {}", LocalDateTime.now());
         this.createdOn = LocalDateTime.now();
         this.updatedOn = null;
     }
