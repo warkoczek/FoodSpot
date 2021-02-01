@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.RegistrationDataDTO;
 import pl.warkoczewski.foodspot.service.registration.RegistrationServiceImpl;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/register")
@@ -20,17 +23,20 @@ public class RegistrationController {
     }
 
     @GetMapping("/registrationForm")
-    public String displayRegistrationFormPage(Model model){
-        model.addAttribute("registrationData", new RegistrationDataDTO());
-        return "/register/registrationForm";
+    public ModelAndView displayRegistrationFormPage(ModelAndView modelAndView){
+        modelAndView.setViewName("/register/registrationForm");
+        modelAndView.addObject("registrationData", new RegistrationDataDTO());
+        return modelAndView;
     }
     @PostMapping("/registrationForm")
-    public String processRegistrationForm(@ModelAttribute RegistrationDataDTO registrationDataDTO, BindingResult bindingResult, Model model){
+    public ModelAndView processRegistrationForm(@ModelAttribute("registrationData") @Valid RegistrationDataDTO registrationDataDTO, BindingResult bindingResult, ModelAndView modelAndView){
         if(bindingResult.hasErrors()){
-            return "/register/registrationForm";
+            modelAndView.setViewName("/register/registrationForm");
+            return modelAndView;
         }
         registrationService.register(registrationDataDTO);
-        return "redirect:/sign_in";
+        modelAndView.setViewName("redirect:/sign_in");
+        return modelAndView;
     }
 
 

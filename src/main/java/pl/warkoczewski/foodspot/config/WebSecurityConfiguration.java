@@ -23,7 +23,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                    .antMatchers("/searchPlaces/byCoordinates").permitAll()
+                    .antMatchers("/home/homePage", "/sign_in").permitAll()
+                    .antMatchers("/searchPlaces/byCoordinates").authenticated()
                     .and()
                 .formLogin()
                     .loginPage("/sign_in")

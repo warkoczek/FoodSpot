@@ -32,7 +32,6 @@ public class User extends BaseEntity implements UserDetails {
         this.role = role;
         this.isEnabled = isEnabled;
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
