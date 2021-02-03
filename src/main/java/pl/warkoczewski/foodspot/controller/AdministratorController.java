@@ -11,7 +11,7 @@ public class AdministratorController {
     public String displayAdministratorPage(){
         return "/admin/administrator";
     }
-    @GetMapping("/admin/accesDenied")
+    @GetMapping("/admin/accessDenied")
     public String getAccessDeniedPage(){
         return "/admin/accessDenied";
     }
