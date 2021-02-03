@@ -25,12 +25,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
                     .antMatchers("/home/homePage", "/sign_in").permitAll()
                     .antMatchers("/searchPlaces/byCoordinates").authenticated()
+                    .antMatchers("/admin/administrator").hasRole("ADMIN")
                     .and()
                 .formLogin()
                     .loginPage("/sign_in")
                     .usernameParameter("username")
                     .passwordParameter("password")
-                    .defaultSuccessUrl("/searchPlaces/byCoordinates")
+                    .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/admin/accessDenied")
         ;
     }
 

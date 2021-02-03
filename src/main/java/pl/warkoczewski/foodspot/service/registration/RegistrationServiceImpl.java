@@ -32,7 +32,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     @Override @Validated({BusinessLogic.class})
-    public void register( @Valid RegistrationDataDTO registrationDataDTO) {
+    public void register(@Valid RegistrationDataDTO registrationDataDTO) {
         log.debug("Registration data to create user: {}", registrationDataDTO);
         User user = modelMapper.map(registrationDataDTO, User.class);
         log.debug("User after mapping: {}", user);

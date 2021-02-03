@@ -23,6 +23,6 @@ public class ValidationServiceImpl implements ValidationService {
 
     @Override
     public boolean isUsernameUnique(String username) {
-        return userRepository.existsByUsername(username);
+        return !userRepository.existsByUsername(username);
     }
 }
