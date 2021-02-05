@@ -52,9 +52,9 @@ public class OnStartDataInitializer implements ApplicationRunner {
         user.setUsername("wojtek");
         user.setEmail("wojtek@yahoo.com");
         user.setPassword(passwordEncoder.encode("Wojteczek8("));
-        user.getRole().add(roleRepository.getRoleByName("ROLE_ADMIN_HEAD"));
-        user.getRole().add(roleRepository.getRoleByName("ROLE_ADMIN"));
-        user.getRole().add(roleRepository.getRoleByName("ROLE_USER"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_ADMIN_HEAD"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_ADMIN"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
         user.setEnabled(true);
         users.add(user);
     }
@@ -63,8 +63,8 @@ public class OnStartDataInitializer implements ApplicationRunner {
         user.setUsername("warkocz");
         user.setEmail("awarkoczewski@yahoo.com");
         user.setPassword(passwordEncoder.encode("Joleczka8("));
-        user.getRole().add(roleRepository.getRoleByName("ROLE_ADMIN"));
-        user.getRole().add(roleRepository.getRoleByName("ROLE_USER"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_ADMIN"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
         user.setEnabled(true);
         users.add(user);
     }
@@ -73,7 +73,7 @@ public class OnStartDataInitializer implements ApplicationRunner {
         user.setUsername("markocz");
         user.setEmail("andresik82@gmail.com");
         user.setPassword(passwordEncoder.encode("Joleczka8&"));
-        user.getRole().add(roleRepository.getRoleByName("ROLE_USER"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
         user.setEnabled(true);
         users.add(user);
     }

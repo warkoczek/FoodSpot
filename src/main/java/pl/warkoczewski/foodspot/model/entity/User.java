@@ -21,20 +21,21 @@ public class User extends BaseEntity implements UserDetails {
     @Column(nullable = false)
     private String password;
     @ManyToMany
-    private Set<Role> role = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
     @Column
     private boolean isEnabled;
 
-    public User( String username, String email, String password, HashSet<Role> role, boolean isEnabled) {
+    public User( String username, String email, String password, HashSet<Role> roles, boolean isEnabled) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.role = role;
+        this.roles = roles;
         this.isEnabled = isEnabled;
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+        return this.roles;
+        //return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
         /*List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
         return authorities;*/
