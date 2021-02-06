@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.*;
 
-@Entity
+@Entity(name = "users")
 @Table(name = "users")
 @Getter@Setter
 @NoArgsConstructor
@@ -20,7 +20,7 @@ public class User extends BaseEntity implements UserDetails {
     private String email;
     @Column(nullable = false)
     private String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
     @Column
     private boolean isEnabled;

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "roles")
 @Table(name = "roles")
 @NoArgsConstructor@AllArgsConstructor
 @Getter@Setter@ToString(callSuper = true)
