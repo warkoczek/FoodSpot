@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.RegistrationDataDTO;
+import pl.warkoczewski.foodspot.model.entity.ROLE_TYPE;
 import pl.warkoczewski.foodspot.service.registration.RegistrationServiceImpl;
 
 import javax.validation.Valid;
@@ -26,6 +27,7 @@ public class RegistrationController {
     public ModelAndView displayRegistrationFormPage(ModelAndView modelAndView){
         modelAndView.setViewName("/register/registrationForm");
         modelAndView.addObject("registrationData", new RegistrationDataDTO());
+        modelAndView.addObject("roles", ROLE_TYPE.values());
         return modelAndView;
     }
     @GetMapping("/success")

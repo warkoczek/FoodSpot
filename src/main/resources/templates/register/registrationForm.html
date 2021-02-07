@@ -11,6 +11,13 @@
     <h2 th:text="#{pages.register.form.registrationForm}">Registration Form</h2><br>
 <form th:action="@{/register/registrationForm}" th:method="post" th:object="${registrationData}">
     <div class="input-group">
+        <label class="control-label" th:for="role">Role</label><br>
+        <option th:field="*{role}">
+            <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.entity.ROLE_TYPE"*/-->
+            <select th:each="role_type : ${T(pl.warkoczewski.foodspot.model.entity.ROLE_TYPE).values()}" th:text="${role_type}" th:value="${role_type}"></select>
+        </option>
+    </div><br>
+    <div class="input-group">
         <label class="control-label" for="username" th:text="#{pages.register.form.registrationDataDTO.username}"
         >Username</label>
         <input id="username" class="form-control" type="text" th:field="*{username}" required autofocus="autofocus"/>
