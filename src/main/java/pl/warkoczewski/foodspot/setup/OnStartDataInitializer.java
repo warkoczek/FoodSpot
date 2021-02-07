@@ -35,6 +35,7 @@ public class OnStartDataInitializer implements ApplicationRunner {
     private List<Role> createRoles(){
         List<Role> roles = new ArrayList<>();
         roles.add(new Role("ROLE_USER"));
+        roles.add(new Role("ROLE_MANAGER"));
         roles.add(new Role("ROLE_ADMIN"));
         roles.add(new Role("ROLE_ADMIN_HEAD"));
         return roleRepository.saveAll(roles);
@@ -44,7 +45,18 @@ public class OnStartDataInitializer implements ApplicationRunner {
         addAdminHead(users);
         addAdmin(users);
         addUser(users);
+        addManager(users);
         return userRepository.saveAll(users);
+    }
+
+    private void addManager(List<User> users) {
+        User user = new User();
+        user.setUsername("tortilla");
+        user.setEmail("tortilla82@gmail.com");
+        user.setPassword(passwordEncoder.encode("Tacos123"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_MANAGER"));
+        user.setEnabled(true);
+        users.add(user);
     }
 
     private void addAdminHead(List<User> users) {

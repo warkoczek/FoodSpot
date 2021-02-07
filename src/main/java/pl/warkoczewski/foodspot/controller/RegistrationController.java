@@ -28,6 +28,10 @@ public class RegistrationController {
         modelAndView.addObject("registrationData", new RegistrationDataDTO());
         return modelAndView;
     }
+    @GetMapping("/success")
+    public String displayRegistrationSuccessPage(){
+        return "/register/registrationSuccess";
+    }
     @PostMapping("/registrationForm")
     public ModelAndView processRegistrationForm(@ModelAttribute("registrationData") @Valid RegistrationDataDTO registrationDataDTO, BindingResult bindingResult, ModelAndView modelAndView){
         if(bindingResult.hasErrors()){
@@ -35,7 +39,7 @@ public class RegistrationController {
             return modelAndView;
         }
         registrationService.register(registrationDataDTO);
-        modelAndView.setViewName("redirect:/sign_in");
+        modelAndView.setViewName("redirect:/register/success");
         return modelAndView;
     }
 
