@@ -34,10 +34,12 @@ public class OnStartDataInitializer implements ApplicationRunner {
     }
     private List<Role> createRoles(){
         List<Role> roles = new ArrayList<>();
-        roles.add(new Role("ROLE_USER"));
-        roles.add(new Role("ROLE_MANAGER"));
-        roles.add(new Role("ROLE_ADMIN"));
         roles.add(new Role("ROLE_ADMIN_HEAD"));
+        roles.add(new Role("ROLE_ADMIN"));
+        roles.add(new Role("ROLE_MANAGER"));
+        roles.add(new Role("ROLE_USER"));
+
+
         return roleRepository.saveAll(roles);
     }
     private List<User> createUsers() {
@@ -49,21 +51,11 @@ public class OnStartDataInitializer implements ApplicationRunner {
         return userRepository.saveAll(users);
     }
 
-    private void addManager(List<User> users) {
-        User user = new User();
-        user.setUsername("tortilla");
-        user.setEmail("tortilla82@gmail.com");
-        user.setPassword(passwordEncoder.encode("Tacos123"));
-        user.getRoles().add(roleRepository.getRoleByName("ROLE_MANAGER"));
-        user.setEnabled(true);
-        users.add(user);
-    }
-
     private void addAdminHead(List<User> users) {
         User user = new User();
-        user.setUsername("wojtek");
+        user.setUsername("head");
         user.setEmail("wojtek@yahoo.com");
-        user.setPassword(passwordEncoder.encode("Wojteczek8("));
+        user.setPassword(passwordEncoder.encode("Head123!"));
         user.getRoles().add(roleRepository.getRoleByName("ROLE_ADMIN_HEAD"));
         user.getRoles().add(roleRepository.getRoleByName("ROLE_ADMIN"));
         user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
@@ -72,19 +64,28 @@ public class OnStartDataInitializer implements ApplicationRunner {
     }
     private void addAdmin(List<User> users) {
         User user = new User();
-        user.setUsername("warkocz");
+        user.setUsername("admin");
         user.setEmail("awarkoczewski@yahoo.com");
-        user.setPassword(passwordEncoder.encode("Joleczka8("));
+        user.setPassword(passwordEncoder.encode("Admin123!"));
         user.getRoles().add(roleRepository.getRoleByName("ROLE_ADMIN"));
         user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
         user.setEnabled(true);
         users.add(user);
     }
+    private void addManager(List<User> users) {
+        User user = new User();
+        user.setUsername("manager");
+        user.setEmail("tortilla82@gmail.com");
+        user.setPassword(passwordEncoder.encode("Manager123!"));
+        user.getRoles().add(roleRepository.getRoleByName("ROLE_MANAGER"));
+        user.setEnabled(true);
+        users.add(user);
+    }
     private void addUser(List<User> users) {
         User user = new User();
-        user.setUsername("markocz");
+        user.setUsername("user");
         user.setEmail("andresik82@gmail.com");
-        user.setPassword(passwordEncoder.encode("Joleczka8&"));
+        user.setPassword(passwordEncoder.encode("User123!"));
         user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
         user.setEnabled(true);
         users.add(user);
