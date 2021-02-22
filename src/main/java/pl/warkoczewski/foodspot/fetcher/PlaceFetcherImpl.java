@@ -18,24 +18,18 @@ public class PlaceFetcherImpl implements PlaceFetcher {
     private static final String GOOGLE_APIS_PLACE_SEARCH_KEY = "AIzaSyAzjbfgQXOHrxMwqh7JS253V--zbXJtqmU";
 
     @Override
-    public List<Place> fetchPlaces(PlaceQuery placeQuery) {
+    public List<Place> fetchPlaces(PlaceQuery placeQuery) throws URISyntaxException {
         RestTemplate restTemplate = new RestTemplate();
         return Objects.requireNonNull(restTemplate.getForEntity(getApiURI(placeQuery), Record.class).getBody()).getPlaces();
     }
-    public URI getApiURI(PlaceQuery placeQuery) {
-        URI uri = null;
-        try {
+    public URI getApiURI(PlaceQuery placeQuery) throws URISyntaxException {
             URIBuilder uriBuilder =  new URIBuilder(BASE_PLACE_SEARCH_GOOGLE_API_URL)
                     .addParameter("location", placeQuery.getLocation().getLat() + ", " + placeQuery.getLocation().getLon())
                     .addParameter("radius", String.valueOf(placeQuery.getRadius()))
                     .addParameter("type", placeQuery.getPlace_type().name())
                     .addParameter("keyword", placeQuery.getKeyword())
                     .addParameter("key", GOOGLE_APIS_PLACE_SEARCH_KEY);
-            uri = uriBuilder.build();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return uri;
+        return uriBuilder.build();
     }
 
 

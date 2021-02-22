@@ -12,14 +12,13 @@ import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
 import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.model.PLACE_TYPE;
 import pl.warkoczewski.foodspot.service.place.PlaceServiceImpl;
-import pl.warkoczewski.foodspot.util.Messages;
 
 import javax.validation.Valid;
-import java.security.Principal;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/searchPlaces")@Slf4j
+@RequestMapping("/searchPlaces")
 public class PlaceController {
     private final PlaceServiceImpl placeService;
     public PlaceController(PlaceServiceImpl placeService) {
@@ -33,14 +32,12 @@ public class PlaceController {
         return "place/foodPlacesByCoordinates";
     }
     @PostMapping("/byCoordinates")
-    public String processPlaceQueryForm(@ModelAttribute("placeQueryDTO") @Valid PlaceQueryDTO placeQueryDTO, BindingResult bindingResult, Model model){
-        log.debug("Place query data: {}", placeQueryDTO);
+    public String processPlaceQueryForm(@ModelAttribute("placeQueryDTO") @Valid PlaceQueryDTO placeQueryDTO, BindingResult bindingResult, Model model) throws URISyntaxException {
         if(bindingResult.hasErrors()){
             return "place/foodPlacesByCoordinates";
         }
         List<DisplayPlaceDTO> results = placeService.getPlaces(placeQueryDTO);
         model.addAttribute("places", results);
-        log.info("Places in your range shown");
         return "place/foodPlacesByCoordinates";
     }
 

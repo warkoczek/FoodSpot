@@ -7,6 +7,7 @@ import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.fetcher.PlaceFetcherImpl;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
 
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,7 @@ public class PlaceServiceImpl implements PlaceService {
         this.modelMapper = modelMapper;
     }
     @Override
-    public List<DisplayPlaceDTO> getPlaces(PlaceQueryDTO placeQueryDTO) {
+    public List<DisplayPlaceDTO> getPlaces(PlaceQueryDTO placeQueryDTO) throws URISyntaxException {
         return placeFetcher.fetchPlaces(modelMapper.map(placeQueryDTO, PlaceQuery.class))
                 .stream()
                 .map(place -> new DisplayPlaceDTO(place.getGeometry().getLocation().getLat()
