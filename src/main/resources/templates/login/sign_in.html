@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/home :: headFragment}">
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+</head>
+<body>
+<header th:insert="~{fragments/home :: headerFragment}"></header><br><br><br>
+<div class="container">
+    <h2 th:text="#{pages.register.form.sign_in}">Please sign in:</h2><br>
+    <form th:action="@{/sign_in}" th:method="post" th:object="${signInData}">
+        <div class="input-group">
+            <label class="control-label" for="username" th:text="#{pages.sign_in.form.username}"
+            >Username</label>
+            <input id="username" class="form-control" type="text" th:field="*{username}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{username}">Incorrect username</span>
+        </div><br>
+        <div class="input-group">
+            <label class="control-label" for="password" th:text="#{pages.sign_in.form.password}"
+            >Password</label>
+            <input id="password" class="form-control" type="text" th:field="*{password}" required autofocus="autofocus"/>
+            <span th:if="${#fields.hasErrors()}" th:errors="*{password}">Incorrect password</span>
+        </div><br>
+        <div class="form-group">
+            <button type="submit"  th:text="#{pages.register.form.button.sign_in}" class="btn btn-success">Sign in</button>
+        </div>
+    </form>
+</div>
+<footer th:insert="~{fragments/home :: footerFragment}"></footer>
+</body>
+</html>

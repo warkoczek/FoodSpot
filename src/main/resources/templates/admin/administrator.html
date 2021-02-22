@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/home :: headFragment}">
+    <meta charset="UTF-8">
+    <title>Administrator</title>
+</head>
+<body>
+<header th:insert="~{fragments/home :: headerFragment}"></header><br><br><br>
+<h1 th:text="#{pages.admin.text.welcome}">Hello Administrator!!!</h1><br><br><br>
+<footer th:insert="~{fragments/home :: footerFragment}"></footer>
+</body>
+</html>

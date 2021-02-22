@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/toSignIn :: headFragment}">
+<head th:replace="~{fragments/home :: headFragment}">
     <meta charset="UTF-8">
     <title>Registration/Login</title>
 </head>
 <body>
-<header th:insert="~{fragments/toSignIn :: headerFragment}"></header><br><br><br>
+<header th:insert="~{fragments/home :: headerFragment}"></header><br><br><br>
 <div class="container">
     <h2 th:text="#{pages.register.form.registrationForm}">Registration Form</h2><br>
 <form th:action="@{/register/registrationForm}" th:method="post" th:object="${registrationData}">
+    <div class="input-group">
+        <label class="control-label" th:for="role">Role</label><br>
+        <select th:field="*{role}">
+            <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.entity.ROLE_TYPE"*/-->
+            <option th:each="role_type : ${T(pl.warkoczewski.foodspot.model.entity.ROLE_TYPE).values()}" th:text="${role_type}" th:value="${role_type}"></option>
+        </select>
+    </div><br>
     <div class="input-group">
         <label class="control-label" for="username" th:text="#{pages.register.form.registrationDataDTO.username}"
         >Username</label>
@@ -39,6 +46,6 @@
     </div>
 </form>
 </div>
-<footer th:insert="~{fragments/toSignIn :: footerFragment}"></footer>
+<footer th:insert="~{fragments/home :: footerFragment}"></footer>
 </body>
 </html>
