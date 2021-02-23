@@ -1,6 +1,5 @@
 package pl.warkoczewski.foodspot.model.entity.restaurant;
 
-import org.springframework.web.bind.annotation.RestController;
 import pl.warkoczewski.foodspot.model.entity.BaseEntity;
 import pl.warkoczewski.foodspot.model.enums.TABLE_NAME;
 

@@ -6,9 +6,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import pl.warkoczewski.foodspot.model.entity.restaurant.Restaurant;
 import pl.warkoczewski.foodspot.model.entity.user.Role;
 import pl.warkoczewski.foodspot.model.entity.user.User;
+import pl.warkoczewski.foodspot.repository.RestaurantRepository;
 import pl.warkoczewski.foodspot.repository.RoleRepository;
+import pl.warkoczewski.foodspot.repository.SeatRepository;
 import pl.warkoczewski.foodspot.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -18,13 +21,21 @@ import java.util.List;
 public class OnStartDataInitializer implements ApplicationRunner {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final RestaurantRepository restaurantRepository;
+    private final SeatRepository seatRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public OnStartDataInitializer(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public OnStartDataInitializer(UserRepository userRepository, RoleRepository roleRepository
+            , RestaurantRepository restaurantRepository
+            , SeatRepository seatRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.restaurantRepository = restaurantRepository;
+        this.seatRepository = seatRepository;
         this.passwordEncoder = passwordEncoder;
     }
+
+
     @Override
     public void run(ApplicationArguments args) {
         List<Role> roles = createRoles();
@@ -89,6 +100,10 @@ public class OnStartDataInitializer implements ApplicationRunner {
         user.getRoles().add(roleRepository.getRoleByName("ROLE_USER"));
         user.setEnabled(true);
         users.add(user);
+    }
+    private void addRestaurants(){
+        List<Restaurant> restaurants = new ArrayList<>();
+
     }
 
 }

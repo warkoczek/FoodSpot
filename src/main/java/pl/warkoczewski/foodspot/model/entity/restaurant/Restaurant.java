@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Restaurant")
 public class Restaurant extends BaseEntity {
     private String name;
     @ManyToMany(mappedBy = "restaurants")
