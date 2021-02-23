@@ -6,8 +6,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import pl.warkoczewski.foodspot.model.entity.Role;
-import pl.warkoczewski.foodspot.model.entity.User;
+import pl.warkoczewski.foodspot.model.entity.user.Role;
+import pl.warkoczewski.foodspot.model.entity.user.User;
 import pl.warkoczewski.foodspot.repository.RoleRepository;
 import pl.warkoczewski.foodspot.repository.UserRepository;
 

@@ -2,7 +2,7 @@ package pl.warkoczewski.foodspot.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import pl.warkoczewski.foodspot.model.PLACE_TYPE;
+import pl.warkoczewski.foodspot.model.enums.PLACE_TYPE;
 import pl.warkoczewski.foodspot.validation.constraints.Latitude;
 import pl.warkoczewski.foodspot.validation.constraints.Longitude;
 @AllArgsConstructor
