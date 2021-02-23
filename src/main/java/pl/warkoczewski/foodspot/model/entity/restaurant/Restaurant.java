@@ -16,7 +16,6 @@ public class Restaurant extends BaseEntity {
     private List<Seat> seats = new ArrayList<>();
 
     public Restaurant(){}
-
     public Restaurant(String name, List<Seat> seats) {
         this.name = name;
         this.seats = seats;

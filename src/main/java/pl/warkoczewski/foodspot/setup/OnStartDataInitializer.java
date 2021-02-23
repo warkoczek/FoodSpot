@@ -42,6 +42,9 @@ public class OnStartDataInitializer implements ApplicationRunner {
         log.info("After roles creation {}", roles);
         List<User> users = createUsers();
         log.info("After users creation {}", users);
+        List<Restaurant> restaurants = addRestaurants();
+        log.info("After restaurants creation {}", restaurants);
+
     }
     private List<Role> createRoles(){
         List<Role> roles = new ArrayList<>();
@@ -49,7 +52,6 @@ public class OnStartDataInitializer implements ApplicationRunner {
         roles.add(new Role("ROLE_ADMIN"));
         roles.add(new Role("ROLE_MANAGER"));
         roles.add(new Role("ROLE_USER"));
-
 
         return roleRepository.saveAll(roles);
     }
@@ -101,9 +103,12 @@ public class OnStartDataInitializer implements ApplicationRunner {
         user.setEnabled(true);
         users.add(user);
     }
-    private void addRestaurants(){
+    private List<Restaurant> addRestaurants(){
         List<Restaurant> restaurants = new ArrayList<>();
-
+        Restaurant restaurant = new Restaurant();
+        restaurant.setName("La Rica");
+        restaurants.add(restaurant);
+        return restaurantRepository.saveAll(restaurants);
     }
 
 }
