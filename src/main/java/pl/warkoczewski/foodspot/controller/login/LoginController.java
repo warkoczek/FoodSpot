@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.controller;
+package pl.warkoczewski.foodspot.controller.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

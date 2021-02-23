@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.controller;
+package pl.warkoczewski.foodspot.controller.client;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

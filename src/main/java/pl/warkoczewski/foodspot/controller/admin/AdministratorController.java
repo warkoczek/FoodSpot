@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.controller;
+package pl.warkoczewski.foodspot.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
