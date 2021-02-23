@@ -1,20 +1,27 @@
 package pl.warkoczewski.foodspot.model.entity.restaurant;
 
+import org.springframework.web.bind.annotation.RestController;
 import pl.warkoczewski.foodspot.model.entity.BaseEntity;
 import pl.warkoczewski.foodspot.model.enums.TABLE_NAME;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-public class Table extends BaseEntity {
+public class Seat extends BaseEntity {
+    @Enumerated(EnumType.STRING)
     private TABLE_NAME table_name;
     private boolean isAvailable;
+    @ManyToMany
+    private Set<Restaurant> restaurants = new HashSet<>();
 
-    public Table() {
+    public Seat(){
     }
-    public Table(TABLE_NAME table_name, boolean isAvailable){
+    public Seat(TABLE_NAME table_name, boolean isAvailable, Set<Restaurant> restaurants){
         this.table_name = table_name;
         this.isAvailable = isAvailable;
+        this.restaurants = restaurants;
     }
 
     public TABLE_NAME getTable_name() {
@@ -31,5 +38,8 @@ public class Table extends BaseEntity {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+    public void addRestaurant(Restaurant restaurant){
+        restaurants.add(restaurant);
     }
 }
