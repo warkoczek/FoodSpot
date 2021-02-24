@@ -11,7 +11,7 @@ public class Seat extends BaseEntity {
     private SEAT_NAME SEAT_name;
     private Long amount;
     @ManyToOne
-    @JoinColumn(name = "restaurant_id")
+    //@JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
     public Seat(){
@@ -20,6 +20,10 @@ public class Seat extends BaseEntity {
         this.SEAT_name = SEAT_name;
         this.amount = amount;
         this.restaurant = restaurant;
+    }
+    public Seat(SEAT_NAME SEAT_name, Long amount){
+        this.SEAT_name = SEAT_name;
+        this.amount = amount;
     }
     public SEAT_NAME getSEAT_name() {
         return SEAT_name;
