@@ -42,8 +42,6 @@ public class OnStartDataInitializer implements ApplicationRunner {
         log.info("After roles creation {}", roles);
         List<User> users = createUsers();
         log.info("After users creation {}", users);
-        List<Restaurant> restaurants = addRestaurants();
-        log.info("After restaurants creation {}", restaurants);
 
     }
     private List<Role> createRoles(){

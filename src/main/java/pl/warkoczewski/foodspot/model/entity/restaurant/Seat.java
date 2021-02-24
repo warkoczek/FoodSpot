@@ -1,44 +1,45 @@
 package pl.warkoczewski.foodspot.model.entity.restaurant;
 
 import pl.warkoczewski.foodspot.model.entity.BaseEntity;
-import pl.warkoczewski.foodspot.model.enums.TABLE_NAME;
+import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Seat extends BaseEntity {
     @Enumerated(EnumType.STRING)
-    private TABLE_NAME table_name;
-    private boolean isAvailable;
-    @ManyToMany
-    private Set<Restaurant> restaurants = new HashSet<>();
+    private SEAT_NAME SEAT_name;
+    private Long amount;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
     public Seat(){
     }
-    public Seat(TABLE_NAME table_name, boolean isAvailable, Set<Restaurant> restaurants){
-        this.table_name = table_name;
-        this.isAvailable = isAvailable;
-        this.restaurants = restaurants;
+    public Seat(SEAT_NAME SEAT_name, Long amount, Restaurant restaurant){
+        this.SEAT_name = SEAT_name;
+        this.amount = amount;
+        this.restaurant = restaurant;
     }
-
-    public TABLE_NAME getTable_name() {
-        return table_name;
+    public SEAT_NAME getSEAT_name() {
+        return SEAT_name;
     }
-
-    public void setTable_name(TABLE_NAME table_name) {
-        this.table_name = table_name;
+    public void setSEAT_name(SEAT_NAME SEAT_name) {
+        this.SEAT_name = SEAT_name;
     }
-
+    public Long getAmount() {
+        return amount;
+    }
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
     public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
-    public void addRestaurant(Restaurant restaurant){
-        restaurants.add(restaurant);
+        return amount > 0;
     }
 }
