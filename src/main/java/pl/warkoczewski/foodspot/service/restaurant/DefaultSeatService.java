@@ -3,17 +3,16 @@ package pl.warkoczewski.foodspot.service.restaurant;
 import org.springframework.stereotype.Service;
 import pl.warkoczewski.foodspot.exception.RestaurantNotFoundException;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Seat;
-import pl.warkoczewski.foodspot.repository.RestaurantRepository;
 import pl.warkoczewski.foodspot.repository.SeatRepository;
 
-import java.util.List;
+
 
 @Service
-public class SeatServiceImpl implements SeatService {
+public class DefaultSeatService implements SeatService {
     private final SeatRepository seatRepository;
     private final RestaurantService restaurantService;
 
-    public SeatServiceImpl(SeatRepository seatRepository, RestaurantService restaurantService) {
+    public DefaultSeatService(SeatRepository seatRepository, RestaurantService restaurantService) {
         this.seatRepository = seatRepository;
         this.restaurantService = restaurantService;
     }

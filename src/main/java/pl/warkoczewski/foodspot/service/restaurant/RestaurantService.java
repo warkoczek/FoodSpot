@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RestaurantService {
-    Optional<Restaurant> getRestaurantByName(String name);
+    Restaurant createRestaurant(Restaurant restaurant);
     List<Restaurant> addAllRestaurants(List<Restaurant> restaurants);
+    Optional<Restaurant> getRestaurantByName(String name);
+
 }
