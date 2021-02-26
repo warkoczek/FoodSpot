@@ -24,6 +24,12 @@ public class DefaultRestaurantService implements RestaurantService {
     public List<Restaurant> addAllRestaurants(List<Restaurant> restaurants) {
         return restaurantRepository.saveAll(restaurants);
     }
+
+    @Override
+    public List<Restaurant> showAllRestaurants() {
+        return restaurantRepository.findAll();
+    }
+
     @Override
     public Optional<Restaurant> getRestaurantByName(String name) {
         return restaurantRepository.findByName(name);

@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface RestaurantService {
     Restaurant createRestaurant(Restaurant restaurant);
     List<Restaurant> addAllRestaurants(List<Restaurant> restaurants);
+    List<Restaurant> showAllRestaurants();
     Optional<Restaurant> getRestaurantByName(String name);
 
 }

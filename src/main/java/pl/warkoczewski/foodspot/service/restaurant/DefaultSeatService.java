@@ -19,11 +19,10 @@ public class DefaultSeatService implements SeatService {
 
     @Override
     public Seat addSeat(Seat seat, String name) {
-        restaurantService.getRestaurantByName(name).map(restaurant -> {
+        return restaurantService.getRestaurantByName(name).map(restaurant -> {
                 seat.setRestaurant(restaurant);
                 return seatRepository.save(seat);
     }).orElseThrow(() -> new RestaurantNotFoundException("Restaurant with name: " + name + "Does not exists"));
-        return null;
     }
 
 

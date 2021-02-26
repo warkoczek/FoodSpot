@@ -1,9 +1,9 @@
 package pl.warkoczewski.foodspot.service.restaurant;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Seat;
@@ -11,11 +11,11 @@ import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-class DefaultSeatServiceTest {
-    private final DefaultSeatService seatService;
+public class DefaultSeatServiceTest {
+    @Autowired
+    private DefaultSeatService seatService;
 
-    DefaultSeatServiceTest(DefaultSeatService seatService) {
-        this.seatService = seatService;
+    public DefaultSeatServiceTest() {
     }
 
     @Test
@@ -29,8 +29,6 @@ class DefaultSeatServiceTest {
         //when
         Long actualId = seatService.addSeat(seat, restaurantName).getId();
         //then
-        assertEquals(expectedId, actualId);
-
-
+        Assert.assertEquals(expectedId, actualId);
     }
 }
