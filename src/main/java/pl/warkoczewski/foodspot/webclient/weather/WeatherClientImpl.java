@@ -1,17 +1,26 @@
 package pl.warkoczewski.foodspot.webclient.weather;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import pl.warkoczewski.foodspot.util.Weather;
 
 @Component
+@Slf4j
 public class WeatherClientImpl implements WeatherClient {
-    private static final String WEATHER_URL = "";
-    private static final String API_KEY = "";
+
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
     public String getWeatherForCity(String city) {
-        return restTemplate.getForObject(WEATHER_URL + "", String.class, API_KEY);
+         String response = restTemplate.getForObject(Weather.WEATHER_URL + "weather?q={city}&appid={apiKey}", String.class, city, Weather.API_KEY);
+         log.info("Your city weather: {}", response);
+        return response;
 
+    }
+
+    @Override
+    public String getForecastForCity(String city) {
+        return null;
     }
 }
