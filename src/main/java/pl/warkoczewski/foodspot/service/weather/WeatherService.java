@@ -1,5 +1,7 @@
 package pl.warkoczewski.foodspot.service.weather;
 
+import pl.warkoczewski.foodspot.dto.weather.WeatherDTO;
+
 public interface WeatherService {
-    String getWeather(String city, Double lat, Double lon);
+    WeatherDTO getWeather(String city, Double lat, Double lon);
 }
