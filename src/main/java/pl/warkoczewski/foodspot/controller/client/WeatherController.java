@@ -16,8 +16,7 @@ public class WeatherController {
 
     @GetMapping
     public String displayWeather(){
-        weatherService.getWeather("Warszawa");
-        weatherService.getForecast(52.2298, 21.0118);
+        weatherService.getWeather("Warszawa", 52.2298, 21.0118);
         return "/weather/weather";
     }
 }

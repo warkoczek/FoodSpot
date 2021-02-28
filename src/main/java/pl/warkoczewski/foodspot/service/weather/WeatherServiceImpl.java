@@ -11,12 +11,14 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    public String getWeather(String city) {
-        return weatherClient.getWeatherForCity(city);
+    public String getWeather(String city, Double lat, Double lon) {
+        String weather = weatherClient.getWeatherForCity(city);
+        String forecast = weatherClient.getForecastForCoordinates(lat, lon);
+        return null;
     }
-
+    /*
     @Override
     public String getForecast(Double lat, Double lon) {
         return weatherClient.getForecastForCoordinates(lat, lon);
-    }
+    }*/
 }
