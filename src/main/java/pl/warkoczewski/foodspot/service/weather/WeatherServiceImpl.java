@@ -16,7 +16,7 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    public String getForecast(String city) {
-        return weatherClient.getForecastForCity(city);
+    public String getForecast(Double lat, Double lon) {
+        return weatherClient.getForecastForCity(lat, lon);
     }
 }
