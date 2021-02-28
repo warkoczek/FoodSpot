@@ -16,7 +16,7 @@ public class WeatherClientImpl implements WeatherClient {
 
     @Override
     public WeatherDTO getWeatherForCity(String city) {
-        OpenWeatherDTO openWeatherDTO = getObject("weather?q={city}&appid={apiKey}", OpenWeatherDTO.class, city, Weather.API_KEY);
+        OpenWeatherDTO openWeatherDTO = getObject("weather?q={city}&appid={apiKey}&units=metric", OpenWeatherDTO.class, city, Weather.API_KEY);
         WeatherDTO weatherDTO = WeatherDTO.builder()
                 .temperature(openWeatherDTO.getMain().getTemp())
                 .pressure(openWeatherDTO.getMain().getPressure())
