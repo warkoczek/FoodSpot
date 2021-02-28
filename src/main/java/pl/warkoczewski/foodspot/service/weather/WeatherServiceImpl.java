@@ -1,6 +1,7 @@
 package pl.warkoczewski.foodspot.service.weather;
 
 import org.springframework.stereotype.Service;
+import pl.warkoczewski.foodspot.dto.weather.WeatherDTO;
 import pl.warkoczewski.foodspot.webclient.weather.WeatherClient;
 @Service
 public class WeatherServiceImpl implements WeatherService {
@@ -12,7 +13,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     public String getWeather(String city, Double lat, Double lon) {
-        String weather = weatherClient.getWeatherForCity(city);
+        WeatherDTO weather = weatherClient.getWeatherForCity(city);
         String forecast = weatherClient.getForecastForCoordinates(lat, lon);
         return null;
     }

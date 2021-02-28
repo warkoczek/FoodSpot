@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.dto;
+package pl.warkoczewski.foodspot.dto.place;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

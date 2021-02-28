@@ -1,7 +1,7 @@
 package pl.warkoczewski.foodspot.service.place;
 
-import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
-import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
+import pl.warkoczewski.foodspot.dto.place.DisplayPlaceDTO;
+import pl.warkoczewski.foodspot.dto.place.PlaceQueryDTO;
 
 import java.net.URISyntaxException;
 import java.util.List;

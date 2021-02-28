@@ -1,6 +1,8 @@
 package pl.warkoczewski.foodspot.webclient.weather;
 
+import pl.warkoczewski.foodspot.dto.weather.WeatherDTO;
+
 public interface WeatherClient {
-    String getWeatherForCity(String city);
+    WeatherDTO getWeatherForCity(String city);
     String getForecastForCoordinates(Double lat, Double lon);
 }

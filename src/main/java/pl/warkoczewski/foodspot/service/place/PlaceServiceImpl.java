@@ -2,8 +2,8 @@ package pl.warkoczewski.foodspot.service.place;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.warkoczewski.foodspot.dto.DisplayPlaceDTO;
-import pl.warkoczewski.foodspot.dto.PlaceQueryDTO;
+import pl.warkoczewski.foodspot.dto.place.DisplayPlaceDTO;
+import pl.warkoczewski.foodspot.dto.place.PlaceQueryDTO;
 import pl.warkoczewski.foodspot.fetcher.PlaceFetcherImpl;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
 
