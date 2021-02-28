@@ -19,7 +19,7 @@ public class WeatherClientImpl implements WeatherClient {
 
     }
     @Override
-    public String getForecastForCity(Double lat, Double lon) {
+    public String getForecastForCoordinates(Double lat, Double lon) {
         String response = restTemplate.getForObject(Weather.FORECAST_URL + "onecall/?lat={lat}&lon={lon}&appid={apiKey}", String.class, lat, lon, Weather.API_KEY);
         log.info("Your city forecast: {}", response);
         return response;
