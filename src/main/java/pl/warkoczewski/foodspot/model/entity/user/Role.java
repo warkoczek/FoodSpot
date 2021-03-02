@@ -1,7 +1,8 @@
-package pl.warkoczewski.foodspot.model.entity;
+package pl.warkoczewski.foodspot.model.entity.user;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import pl.warkoczewski.foodspot.model.entity.BaseEntity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

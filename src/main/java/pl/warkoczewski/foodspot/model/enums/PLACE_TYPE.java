@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.model;
+package pl.warkoczewski.foodspot.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

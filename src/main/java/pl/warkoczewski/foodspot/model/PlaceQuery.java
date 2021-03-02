@@ -1,5 +1,7 @@
 package pl.warkoczewski.foodspot.model;
 
+import pl.warkoczewski.foodspot.model.enums.PLACE_TYPE;
+
 public class PlaceQuery {
     private Location location;
     private Long radius;

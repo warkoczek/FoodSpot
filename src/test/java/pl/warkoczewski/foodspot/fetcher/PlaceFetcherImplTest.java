@@ -5,14 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.warkoczewski.foodspot.model.Location;
-import pl.warkoczewski.foodspot.model.PLACE_TYPE;
+import pl.warkoczewski.foodspot.model.enums.PLACE_TYPE;
 import pl.warkoczewski.foodspot.model.PlaceQuery;
-import pl.warkoczewski.foodspot.model.entity.User;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 
 @SpringBootTest

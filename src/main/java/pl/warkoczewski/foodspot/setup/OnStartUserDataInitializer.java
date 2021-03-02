@@ -6,23 +6,34 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import pl.warkoczewski.foodspot.model.entity.Role;
-import pl.warkoczewski.foodspot.model.entity.User;
+import pl.warkoczewski.foodspot.model.entity.restaurant.Restaurant;
+import pl.warkoczewski.foodspot.model.entity.restaurant.Seat;
+import pl.warkoczewski.foodspot.model.entity.user.Role;
+import pl.warkoczewski.foodspot.model.entity.user.User;
+import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
+import pl.warkoczewski.foodspot.repository.RestaurantRepository;
 import pl.warkoczewski.foodspot.repository.RoleRepository;
+import pl.warkoczewski.foodspot.repository.SeatRepository;
 import pl.warkoczewski.foodspot.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 @Slf4j
 @Component
-public class OnStartDataInitializer implements ApplicationRunner {
+public class OnStartUserDataInitializer implements ApplicationRunner {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final RestaurantRepository restaurantRepository;
+    private final SeatRepository seatRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public OnStartDataInitializer(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public OnStartUserDataInitializer(UserRepository userRepository, RoleRepository roleRepository
+            , RestaurantRepository restaurantRepository
+            , SeatRepository seatRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.restaurantRepository = restaurantRepository;
+        this.seatRepository = seatRepository;
         this.passwordEncoder = passwordEncoder;
     }
     @Override
@@ -31,6 +42,7 @@ public class OnStartDataInitializer implements ApplicationRunner {
         log.info("After roles creation {}", roles);
         List<User> users = createUsers();
         log.info("After users creation {}", users);
+
     }
     private List<Role> createRoles(){
         List<Role> roles = new ArrayList<>();
@@ -38,7 +50,6 @@ public class OnStartDataInitializer implements ApplicationRunner {
         roles.add(new Role("ROLE_ADMIN"));
         roles.add(new Role("ROLE_MANAGER"));
         roles.add(new Role("ROLE_USER"));
-
 
         return roleRepository.saveAll(roles);
     }
@@ -50,7 +61,6 @@ public class OnStartDataInitializer implements ApplicationRunner {
         addManager(users);
         return userRepository.saveAll(users);
     }
-
     private void addAdminHead(List<User> users) {
         User user = new User();
         user.setUsername("head");
@@ -90,5 +100,6 @@ public class OnStartDataInitializer implements ApplicationRunner {
         user.setEnabled(true);
         users.add(user);
     }
+
 
 }

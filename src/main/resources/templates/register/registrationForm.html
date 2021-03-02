@@ -13,7 +13,7 @@
     <div class="input-group">
         <label class="control-label" th:for="role">Role</label><br>
         <select th:field="*{role}">
-            <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.entity.ROLE_TYPE"*/-->
+            <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.enums.ROLE_TYPE"*/-->
             <option th:each="role_type : ${T(pl.warkoczewski.foodspot.model.entity.ROLE_TYPE).values()}" th:text="${role_type}" th:value="${role_type}"></option>
         </select>
     </div><br>

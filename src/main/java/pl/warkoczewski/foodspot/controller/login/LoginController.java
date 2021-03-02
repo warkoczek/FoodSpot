@@ -1,11 +1,11 @@
-package pl.warkoczewski.foodspot.controller;
+package pl.warkoczewski.foodspot.controller.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pl.warkoczewski.foodspot.dto.SignInData;
+import pl.warkoczewski.foodspot.dto.security.SignInData;
 
 @Controller
 @RequestMapping("/sign_in")

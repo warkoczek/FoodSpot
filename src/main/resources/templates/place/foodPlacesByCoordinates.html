@@ -33,9 +33,9 @@
         <div class="input-group">
             <label class="control-label" th:for="place_type" th:text="#{pages.places.form.placeQueryDTO.placeType}"
             >Place Type</label><br>
-            <!--/*@thymesVar id="place_type" type="pl.warkoczewski.foodspot.model.PLACE_TYPE"*/-->
+            <!--/*@thymesVar id="place_type" type="pl.warkoczewski.foodspot.model.enums.PLACE_TYPE"*/-->
             <select th:field="*{place_type}">
-                <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.PLACE_TYPE"*/-->
+                <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.enums.PLACE_TYPE"*/-->
                 <option th:each="placeType : ${T(pl.warkoczewski.foodspot.model.PLACE_TYPE).values()}" th:text="${placeType}" th:value="${placeType}"></option>
             </select>
         </div><br>

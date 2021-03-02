@@ -1,9 +1,10 @@
-package pl.warkoczewski.foodspot.model.entity;
+package pl.warkoczewski.foodspot.model.entity.user;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pl.warkoczewski.foodspot.model.entity.BaseEntity;
+import pl.warkoczewski.foodspot.model.entity.user.Role;
 
 import javax.persistence.*;
 import java.util.*;
