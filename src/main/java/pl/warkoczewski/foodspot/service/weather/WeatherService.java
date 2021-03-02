@@ -4,4 +4,5 @@ import pl.warkoczewski.foodspot.dto.weather.WeatherDTO;
 
 public interface WeatherService {
     WeatherDTO getWeather(String city, Double lat, Double lon);
+    String getForecast(Double lat, Double lon);
 }

@@ -15,9 +15,9 @@ public class WeatherServiceImpl implements WeatherService {
     public WeatherDTO getWeather(String city, Double lat, Double lon) {
         return weatherClient.getWeatherForCity(city);
     }
-    /*
+
     @Override
     public String getForecast(Double lat, Double lon) {
         return weatherClient.getForecastForCoordinates(lat, lon);
-    }*/
+    }
 }
