@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.weather.WeatherDTO;
 import pl.warkoczewski.foodspot.service.weather.WeatherService;
 
@@ -22,10 +23,11 @@ public class WeatherController {
         return "/weather/weather";
     }
     @PostMapping
-    public String processGetWeatherForm(@RequestParam("city") String city, Model model){
+    public ModelAndView processGetWeatherForm(@RequestParam("city") String city, ModelAndView modelAndView){
         WeatherDTO weatherDTO = weatherService.getWeather(city, 52.2298, 21.0118);
-        model.addAttribute("weatherDTO", weatherDTO);
-        return "/weather/weather";
+        modelAndView.addObject("weatherDTO", weatherDTO);
+        modelAndView.setViewName("/weather/weather");
+        return modelAndView;
     }
 
 }
