@@ -8,14 +8,15 @@
 <body>
 <header  th:replace="~{fragments/signedIn :: headerFragment}"></header><br><br><br>
 <div class="container">
-    <div th:object="${seats}">
+    <div th:object="${restaurant}">
+        <h2 th:text="${restaurant.name}"></h2>
         <h2 th:text="Seats"></h2>
         <table class="table table-striped">
             <tr>
                 <th>Name</th>
                 <th>Amount</th>
             </tr>
-            <tr th:each="seat : ${seats}">
+            <tr th:each="seat : ${restaurant.getSeats()}">
                 <td th:text="${seat.name}"></td>
                 <td th:text="${seat.amount}"></td>
             </tr>
