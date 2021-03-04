@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.service.restaurant;
+package pl.warkoczewski.foodspot.service.seat;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Seat;
 import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
+import pl.warkoczewski.foodspot.service.restaurant.DefaultSeatService;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
