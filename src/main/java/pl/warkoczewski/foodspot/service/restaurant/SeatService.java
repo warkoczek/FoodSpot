@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface SeatService {
     List<RestaurantSeatDTO> getAllByRestaurantName(String name);
+    List<Seat> addAll(List<Seat> seats);
     Seat addSeat(Seat seat, String name);
 }

@@ -28,6 +28,11 @@ public class DefaultSeatService implements SeatService {
     }
 
     @Override
+    public List<Seat> addAll(List<Seat> seats) {
+        return seatRepository.saveAll(seats);
+    }
+
+    @Override
     public Seat addSeat(Seat seat, String name) {
         return restaurantRepository.findByName(name).map(restaurant -> {
                 seat.setRestaurant(restaurant);

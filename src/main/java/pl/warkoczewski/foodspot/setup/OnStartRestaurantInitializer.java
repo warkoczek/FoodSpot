@@ -29,19 +29,34 @@ public class OnStartRestaurantInitializer implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         List<Restaurant> restaurants = addRestaurants();
         log.info("After restaurants creation {}", restaurants);
-        List<Seat> seats = addSeats();
-        log.info("After seats creation {}", seats);
+        List<Seat> seat1 = addSeat1();
+        log.info("After seats creation {}", seat1);
+        List<Seat> seat2 = addSeat2();
+        log.info("After seats creation {}", seat2);
+        List<Seat> seat3 = addSeat3();
+        log.info("After seats creation {}", seat3);
     }
     private List<Restaurant> addRestaurants(){
         List<Restaurant> restaurants = new ArrayList<>();
         restaurants.add(new Restaurant("La Rica"));
         restaurants.add(new Restaurant("La Bamba"));
+        restaurants.add(new Restaurant("La Luna"));
         return restaurantService.addAllRestaurants(restaurants);
     }
-    private List<Seat> addSeats(){
-        Seat seat = new Seat(SEAT_NAME.ONE, 4L);
-        String name = "La Rica";
-        //Restaurant restaurant = restaurantRepository.findById(1l).get();
-        return Collections.singletonList(seatService.addSeat(seat, name));
+    private List<Seat> addSeat1(){
+        Seat seat1 = new Seat(SEAT_NAME.ONE, 4L);
+        String name1 = "La Rica";
+
+        return Collections.singletonList(seatService.addSeat(seat1, name1));
+    }
+    private List<Seat> addSeat2(){
+        Seat seat2 = new Seat(SEAT_NAME.THREE, 2l);
+        String name2 = "La Bamba";
+        return Collections.singletonList(seatService.addSeat(seat2, name2));
+    }
+    private List<Seat> addSeat3(){
+        Seat seat3 = new Seat(SEAT_NAME.FIVE, 1l);
+        String name3 = "La Luna";
+        return Collections.singletonList(seatService.addSeat(seat3, name3));
     }
 }

@@ -7,7 +7,6 @@
 </head>
 <body>
 <header  th:replace="~{fragments/signedIn :: headerFragment}"></header><br><br><br>
-<h1>List of restaurants</h1>
 <div class="container">
     <div th:if="${not #lists.isEmpty(restaurants)}">
         <h2>Restaurants</h2>
@@ -28,6 +27,7 @@
             </tbody>
         </table>
     </div>
+    <div th:unless="${not #lists.isEmpty(restaurants)}">I am sorry there is no restaurants available</div>
 </div>
 <br>
 <br>
