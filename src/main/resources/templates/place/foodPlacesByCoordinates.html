@@ -36,7 +36,7 @@
             <!--/*@thymesVar id="place_type" type="pl.warkoczewski.foodspot.model.enums.PLACE_TYPE"*/-->
             <select th:field="*{place_type}">
                 <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.enums.PLACE_TYPE"*/-->
-                <option th:each="placeType : ${T(pl.warkoczewski.foodspot.model.PLACE_TYPE).values()}" th:text="${placeType}" th:value="${placeType}"></option>
+                <option th:each="placeType : ${T(pl.warkoczewski.foodspot.model.enums.PLACE_TYPE).values()}" th:text="${placeType}" th:value="${placeType}"></option>
             </select>
         </div><br>
         <div class="input-group">

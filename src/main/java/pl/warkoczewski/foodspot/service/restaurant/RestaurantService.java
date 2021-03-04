@@ -1,5 +1,6 @@
 package pl.warkoczewski.foodspot.service.restaurant;
 
+import pl.warkoczewski.foodspot.dto.restaurant.RestaurantDisplayDTO;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Restaurant;
 
 import java.util.List;
@@ -9,6 +10,6 @@ public interface RestaurantService {
     Restaurant createRestaurant(Restaurant restaurant);
     List<Restaurant> addAllRestaurants(List<Restaurant> restaurants);
     List<Restaurant> showAllRestaurants();
-    Optional<Restaurant> getRestaurantByName(String name);
+    Optional<RestaurantDisplayDTO> getRestaurantByName(String name);
 
 }
