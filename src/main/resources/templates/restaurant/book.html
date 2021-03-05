@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Restaurant</title>
+</head>
+<body>
+<h1>Booking</h1>
+<div class="container">
+    <!--/*@thymesVar id="RestaurantBookingDTO" type="pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO"*/-->
+    <form th:action="@{/restaurants/restaurant/book}" method="post" th:object="${RestaurantBookingDTO}">
+        <div class="input-group">
+            <label class="control-label" for="restaurantName" th:text="#{pages.restaurants.restaurant.view.restaurant_name}"
+            >Restaurant</label>
+            <input id="restaurantName" class="form-control" type="text" th:field="*{restaurantName}" required autofocus="autofocus" />
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect restaurant name</span>
+        </div><br>
+
+        <div class="input-group">
+            <label class="control-label" for="seatName" th:text="#{pages.restaurants.restaurant.view.seat_name}"
+            >Seat Name</label>
+            <input id="seatName" class="form-control" type="text" th:field="*{seatName}" required autofocus="autofocus" />
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{seatName}">Incorrect restaurant name</span>
+        </div><br>
+        <div class="input-group">
+            <label class="control-label" for="amount" th:text="#{pages.restaurant.restaurant.view.amount}"
+            >Restaurant</label>
+            <input id="amount" class="form-control" type="text" th:field="*{amount}" required autofocus="autofocus" />
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{amount}">Incorrect restaurant name</span>
+        </div><br>
+    </form>
+</div>
+</body>
+</html>
