@@ -1,6 +1,7 @@
 package pl.warkoczewski.foodspot.controller.restaurant;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,20 +14,14 @@ import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
 @Controller
 @RequestMapping("/restaurants/restaurant")
 public class BookingController {
-    @GetMapping("/book")
-    public ModelAndView displayBookingPage(ModelAndView modelAndView){
-        modelAndView.addObject("restaurantBookingDTO", new RestaurantBookingDTO());
-        modelAndView.addObject("seatNames", SEAT_NAME.values());
-        modelAndView.setViewName("/restaurant/book");
-        return modelAndView;
-
+    /*@GetMapping("/book")
+    public String displayBookingPage(Model model){
+        model.addAttribute("restaurantBookingDTO", new RestaurantBookingDTO());
+        model.addAttribute("seatNames", SEAT_NAME.values());
+        return "/restaurant/book";
     }
     @PostMapping("/book")
-    public ModelAndView processBookingForm(@ModelAttribute RestaurantBookingDTO restaurantBookingDTO, ModelAndView modelAndView, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            modelAndView.setViewName("/restaurant/book");
-        }
-        modelAndView.setViewName("restaurant/book");
-        return modelAndView;
-    }
+    public String processBookingForm(@ModelAttribute RestaurantBookingDTO restaurantBookingDTO){
+        return "/restaurant/book";
+    }*/
 }

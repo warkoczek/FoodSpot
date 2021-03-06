@@ -1,14 +1,13 @@
 package pl.warkoczewski.foodspot.controller.restaurant;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantDisplayDTO;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Restaurant;
+import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
 import pl.warkoczewski.foodspot.service.restaurant.RestaurantService;
 
 import java.util.List;
@@ -41,6 +40,17 @@ public class RestaurantController {
         modelAndView.setViewName("restaurant/restaurant");
         return modelAndView;
     }
+    @GetMapping("/restaurant/book")
+    public String displayBookingPage(Model model){
+        model.addAttribute("restaurantBookingDTO", new RestaurantBookingDTO());
+        model.addAttribute("seatNames", SEAT_NAME.values());
+        return "restaurant/book";
+    }
+   /* @PostMapping("/restaurant/book")
+    public String processBookingForm(@ModelAttribute RestaurantBookingDTO restaurantBookingDTO){
+
+        return "/restaurant/book";
+    }*/
 
 
 

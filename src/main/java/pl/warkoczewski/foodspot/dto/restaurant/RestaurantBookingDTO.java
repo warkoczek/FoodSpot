@@ -7,5 +7,5 @@ public class RestaurantBookingDTO {
 
     private String restaurantName;
     private String seatName;
-    private Long amount;
+    private String amount;
 }

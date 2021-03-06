@@ -15,7 +15,7 @@
             <label class="control-label" for="restaurantName" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.restaurantName}"
             >Restaurant</label>
             <input id="restaurantName" class="form-control" type="text" th:field="*{restaurantName}" required autofocus="autofocus" />
-            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect restaurant name</span>
+            <!--<span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect restaurant name</span>-->
         </div><br>
         <div class="input-group">
             <label class="control-label" th:for="seatName" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.seatName}"
@@ -28,9 +28,9 @@
         </div><br>
         <div class="input-group">
             <label class="control-label" for="amount" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.amount}"
-            >Restaurant</label>
+            >Amount</label>
             <input id="amount" class="form-control" type="text" th:field="*{amount}" required autofocus="autofocus" />
-            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{amount}">Incorrect restaurant name</span>
+            <!--<span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{amount}">Incorrect restaurant name</span>-->
         </div><br>
     </form>
 </div>
