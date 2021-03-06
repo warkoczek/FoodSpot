@@ -1,11 +1,11 @@
 package pl.warkoczewski.foodspot.dto.restaurant;
 
-import lombok.Getter;
-import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
+import lombok.Data;
 
-@Getter
+@Data
 public class RestaurantBookingDTO {
+
     private String restaurantName;
-    private SEAT_NAME seatName;
+    private String seatName;
     private Long amount;
 }

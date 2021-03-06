@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO;
+import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
 
 @Controller
 @RequestMapping("/restaurants/restaurant")
@@ -15,6 +16,7 @@ public class BookingController {
     @GetMapping("/book")
     public ModelAndView displayBookingPage(ModelAndView modelAndView){
         modelAndView.addObject("restaurantBookingDTO", new RestaurantBookingDTO());
+        modelAndView.addObject("seatNames", SEAT_NAME.values());
         modelAndView.setViewName("/restaurant/book");
         return modelAndView;
 
