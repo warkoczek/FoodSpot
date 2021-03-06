@@ -41,21 +41,7 @@ public class RestaurantController {
         modelAndView.setViewName("restaurant/restaurant");
         return modelAndView;
     }
-    @GetMapping("/restaurant/book")
-    public String displayBookingPage(Model model){
-        model.addAttribute("restaurantBookingDTO", new RestaurantBookingDTO());
-        model.addAttribute("seatNames", SEAT_NAME.values());
-        return "restaurant/book";
-    }
-   @PostMapping("/restaurant/book")
-    public String processBookingForm(@ModelAttribute("restaurantBookingDTO") RestaurantBookingDTO restaurantBookingDTO, BindingResult bindingResult){
-        if(bindingResult.hasErrors()) {
-            return "restaurant/book";
-        }
-        restaurantService.createRestaurant(restaurantBookingDTO);
-            return "restaurant/book";
 
-    }
 
 
 
