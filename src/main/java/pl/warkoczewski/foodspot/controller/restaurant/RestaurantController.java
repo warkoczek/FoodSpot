@@ -2,6 +2,7 @@ package pl.warkoczewski.foodspot.controller.restaurant;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO;
@@ -46,11 +47,15 @@ public class RestaurantController {
         model.addAttribute("seatNames", SEAT_NAME.values());
         return "restaurant/book";
     }
-   /* @PostMapping("/restaurant/book")
-    public String processBookingForm(@ModelAttribute RestaurantBookingDTO restaurantBookingDTO){
+   @PostMapping("/restaurant/book")
+    public String processBookingForm(@ModelAttribute("restaurantBookingDTO") RestaurantBookingDTO restaurantBookingDTO, BindingResult bindingResult){
+        if(bindingResult.hasErrors()) {
+            return "restaurant/book";
+        }
+        restaurantService.createRestaurant(restaurantBookingDTO);
+            return "restaurant/book";
 
-        return "/restaurant/book";
-    }*/
+    }
 
 
 

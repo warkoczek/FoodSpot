@@ -15,12 +15,12 @@
             <label class="control-label" for="restaurantName" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.restaurantName}"
             >Restaurant</label>
             <input id="restaurantName" class="form-control" type="text" th:field="*{restaurantName}" required autofocus="autofocus" />
-            <!--<span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect restaurant name</span>-->
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect restaurant name</span>
         </div><br>
         <div class="input-group">
             <label class="control-label" th:for="seatName" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.seatName}"
             >Seat Name</label><br>
-            <!--/*@thymesVar id="place_type" type="pl.warkoczewski.foodspot.model.enums.SEAT_NAME"*/-->
+            <!--/*@thymesVar id="seatName" type="pl.warkoczewski.foodspot.model.enums.SEAT_NAME"*/-->
             <select th:field="*{seatName}">
                 <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.enums.SEAT_NAME"*/-->
                 <option th:each="seatName : ${T(pl.warkoczewski.foodspot.model.enums.SEAT_NAME).values()}" th:text="${seatName}" th:value="${seatName}"></option>
@@ -30,8 +30,11 @@
             <label class="control-label" for="amount" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.amount}"
             >Amount</label>
             <input id="amount" class="form-control" type="text" th:field="*{amount}" required autofocus="autofocus" />
-            <!--<span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{amount}">Incorrect restaurant name</span>-->
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{amount}">Incorrect restaurant name</span>
         </div><br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Book</button>
+        </div>
     </form>
 </div>
 <footer th:replace="~{fragments/signedIn :: footerFragment}"></footer>

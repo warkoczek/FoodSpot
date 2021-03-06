@@ -1,10 +1,10 @@
 package pl.warkoczewski.foodspot.service.restaurant;
 
 import org.springframework.stereotype.Service;
+import pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantDisplayDTO;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantSeatDTO;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Restaurant;
-import pl.warkoczewski.foodspot.model.entity.restaurant.Seat;
 import pl.warkoczewski.foodspot.repository.RestaurantRepository;
 
 import java.util.List;
@@ -19,12 +19,11 @@ public class DefaultRestaurantService implements RestaurantService {
         this.restaurantRepository = restaurantRepository;
         this.seatService = seatService;
     }
-
     @Override
-    public Restaurant createRestaurant(Restaurant restaurant){
+    public Restaurant createRestaurant(RestaurantBookingDTO restaurantBookingDTO){
+        Restaurant restaurant = new Restaurant();
         return restaurantRepository.save(restaurant);
     }
-
     @Override
     public List<Restaurant> addAllRestaurants(List<Restaurant> restaurants) {
         return restaurantRepository.saveAll(restaurants);
