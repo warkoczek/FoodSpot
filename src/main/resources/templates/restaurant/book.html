@@ -17,13 +17,20 @@
             <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect Restaurant Name</span>
         </div><br>
         <div class="input-group">
-            <label class="control-label" th:for="seatName"
-            >Seat Name</label><br>
+            <label class="control-label" th:for="seatName">Seat Name</label><br>
             <select th:field="*{seatName}">
                 <!--/*@thymesVar id="seatName" type="pl.warkoczewski.foodspot.model.enums.SEAT_NAME"*/-->
                 <option th:each="seat_Name : ${T(pl.warkoczewski.foodspot.model.enums.SEAT_NAME).values()}" th:text="${seat_Name}" th:value="${seat_Name}"></option>
             </select>
         </div><br>
+        <div class="input-group">
+            <label class="control-label" th:for="amount">Amount</label>
+            <input id="amount" class="form-control" type="text" th:field="*{amount}" required autofocus="autofocus">
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{amount}">Incorrect amount</span>
+        </div><br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Book</button>
+        </div>
     </form>
 </div>
 <footer th:replace="~{fragments/signedIn :: footerFragment}"></footer>
