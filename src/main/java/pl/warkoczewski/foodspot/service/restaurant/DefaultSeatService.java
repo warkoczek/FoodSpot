@@ -1,7 +1,7 @@
 package pl.warkoczewski.foodspot.service.restaurant;
 
 import org.springframework.stereotype.Service;
-import pl.warkoczewski.foodspot.dto.restaurant.RestaurantSeatDTO;
+import pl.warkoczewski.foodspot.dto.restaurant.SeatDisplayDTO;
 import pl.warkoczewski.foodspot.exception.RestaurantNotFoundException;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Seat;
 import pl.warkoczewski.foodspot.repository.RestaurantRepository;
@@ -21,10 +21,12 @@ public class DefaultSeatService implements SeatService {
         this.restaurantRepository = restaurantRepository;
     }
     @Override
-    public List<RestaurantSeatDTO> getAllByRestaurantName(String name) {
-        return seatRepository.findAllByRestaurantName(name).stream()
-                .map(seat -> RestaurantSeatDTO.builder().amount(seat.getAmount())
-                        .name(seat.getSEAT_name().name()).build()).collect(Collectors.toList());
+    public List<SeatDisplayDTO> getAllByRestaurantName(String name) {
+        return seatRepository.findAllByRestaurantName(name).stream().map(seat
+                -> SeatDisplayDTO
+                .builder()
+                .name(seat.getSEAT_name().name())
+                .amount(seat.getAmount()).build()).collect(Collectors.toList());
     }
 
     @Override

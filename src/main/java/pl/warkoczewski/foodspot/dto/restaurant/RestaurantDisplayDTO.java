@@ -11,5 +11,5 @@ import java.util.List;
 @Builder
 public class RestaurantDisplayDTO {
     private String name;
-    private List<RestaurantSeatDTO> seats;
+    private List<SeatDisplayDTO> seats;
 }

@@ -3,8 +3,9 @@ package pl.warkoczewski.foodspot.service.restaurant;
 import org.springframework.stereotype.Service;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantDisplayDTO;
-import pl.warkoczewski.foodspot.dto.restaurant.RestaurantSeatDTO;
+import pl.warkoczewski.foodspot.dto.restaurant.SeatDisplayDTO;
 import pl.warkoczewski.foodspot.model.entity.restaurant.Restaurant;
+import pl.warkoczewski.foodspot.model.entity.restaurant.Seat;
 import pl.warkoczewski.foodspot.repository.RestaurantRepository;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public class DefaultRestaurantService implements RestaurantService {
 
     @Override
     public Optional<RestaurantDisplayDTO> getRestaurantByName(String name) {
-        List<RestaurantSeatDTO> seats = seatService.getAllByRestaurantName(name);
+        List<SeatDisplayDTO> seats = seatService.getAllByRestaurantName(name);
         return restaurantRepository.findByName(name)
                         .map(restaurant -> RestaurantDisplayDTO.builder()
                                 .name(restaurant.getName())

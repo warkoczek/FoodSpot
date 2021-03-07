@@ -1,27 +1,39 @@
 package pl.warkoczewski.foodspot.controller.restaurant;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO;
 import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
+import pl.warkoczewski.foodspot.service.restaurant.RestaurantService;
 
 @Controller
 @RequestMapping("/restaurants/restaurant")
 public class BookingController {
-    /*@GetMapping("/book")
-    public String displayBookingPage(Model model){
-        model.addAttribute("restaurantBookingDTO", new RestaurantBookingDTO());
-        model.addAttribute("seatNames", SEAT_NAME.values());
-        return "/restaurant/book";
+    private final RestaurantService restaurantService;
+
+    public BookingController(RestaurantService restaurantService) {
+        this.restaurantService = restaurantService;
+    }
+
+    @GetMapping("/book/{name}")
+    public ModelAndView displayBookingPage(@PathVariable(value = "name") String name, ModelAndView modelAndView){
+        restaurantService.getRestaurantByName(name).ifPresent(restaurantDisplayDTO
+                -> { modelAndView.addObject("restaurantDisplayDTO", restaurantDisplayDTO);
+            modelAndView.addObject("restaurantBookingDTO", new RestaurantBookingDTO());
+            modelAndView.addObject("seatNames", SEAT_NAME.values());
+            modelAndView.setViewName("restaurant/book");
+        });
+        return modelAndView;
     }
     @PostMapping("/book")
-    public String processBookingForm(@ModelAttribute RestaurantBookingDTO restaurantBookingDTO){
-        return "/restaurant/book";
-    }*/
+    public ModelAndView processBookingPage(@ModelAttribute RestaurantBookingDTO bookingDTO
+            , ModelAndView modelAndView, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            modelAndView.setViewName("restaurant/book");
+            return modelAndView;
+        }
+        return modelAndView;
+    }
 }

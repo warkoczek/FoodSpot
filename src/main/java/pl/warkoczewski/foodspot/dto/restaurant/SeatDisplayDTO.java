@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Builder
-public class RestaurantSeatDTO {
+public class SeatDisplayDTO {
     private String name;
     private Long amount;
 }

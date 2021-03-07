@@ -13,7 +13,7 @@
         <div class="input-group">
             <label class="control-label" for="restaurantName"
             >Restaurant Name</label>
-            <input id="restaurantName" class="form-control" type="text" th:value="${nameOfRestaurant}" th:field="*{restaurantName}" readonly="readonly" />
+            <input id="restaurantName" class="form-control" type="text" th:value="${restaurantDisplayDTO.getName()}" readonly="readonly"/>
             <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect Restaurant Name</span>
         </div><br>
         <div class="input-group">
@@ -32,6 +32,10 @@
             <button type="submit" class="btn btn-success">Book</button>
         </div>
     </form>
+    <div class="form-group">
+        <button type="submit" th:href="@{/restaurants/restaurant/view/{name}(name= ${restaurantDisplayDTO.getName()})}">Cancel</button>
+    </div>
+
 </div>
 <footer th:replace="~{fragments/signedIn :: footerFragment}"></footer>
 </body>
