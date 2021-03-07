@@ -13,7 +13,7 @@
         <div class="input-group">
             <label class="control-label" for="restaurantName"
             >Restaurant Name</label>
-            <input id="restaurantName" class="form-control" type="text" th:text="nameOfRestaurant" th:field="*{restaurantName}" readonly="readonly" />
+            <input id="restaurantName" class="form-control" type="text" th:value="${nameOfRestaurant}" th:field="*{restaurantName}" readonly="readonly" />
             <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect Restaurant Name</span>
         </div><br>
         <div class="input-group">
