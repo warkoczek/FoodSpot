@@ -20,7 +20,7 @@
             <tr th:each="seat : ${restaurant.getSeats()}">
                 <td th:text="${seat.name}"></td>
                 <td th:text="${seat.amount}"></td>
-                <td><a th:href="@{/restaurants/restaurant/book}">Book</a></td>
+                <td><a th:href="@{/restaurants/restaurant/book/{name}(name=${restaurant.name})}">Book</a></td>
             </tr>
         </table>
     </div>

@@ -7,13 +7,13 @@
 </head>
 <body>
 <header  th:replace="~{fragments/signedIn :: headerFragment}"></header><br><br><br>
-<h1>Booking</h1><
+<h1>Booking</h1>
 <div class="container">
     <form th:action="@{/restaurants/restaurant/book}" method="post" th:object="${restaurantBookingDTO}">
         <div class="input-group">
             <label class="control-label" for="restaurantName"
             >Restaurant Name</label>
-            <input id="restaurantName" class="form-control" type="text" th:field="*{restaurantName}" required autofocus="autofocus" />
+            <input id="restaurantName" class="form-control" type="text" th:text="nameOfRestaurant" th:field="*{restaurantName}" readonly="readonly" />
             <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect Restaurant Name</span>
         </div><br>
         <div class="input-group">
