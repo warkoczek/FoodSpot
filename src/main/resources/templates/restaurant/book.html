@@ -7,34 +7,23 @@
 </head>
 <body>
 <header  th:replace="~{fragments/signedIn :: headerFragment}"></header><br><br><br>
-<h1>Booking</h1>
+<h1>Booking</h1><
 <div class="container">
-    <!--/*@thymesVar id="RestaurantBookingDTO" type="pl.warkoczewski.foodspot.dto.restaurant.RestaurantBookingDTO"*/-->
-    <form th:action="@{/restaurants/restaurant/book}" method="post" th:object="${RestaurantBookingDTO}">
+    <form th:action="@{/restaurants/restaurant/book}" method="post" th:object="${restaurantBookingDTO}">
         <div class="input-group">
-            <label class="control-label" for="restaurantName" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.restaurantName}"
-            >Restaurant</label>
+            <label class="control-label" for="restaurantName"
+            >Restaurant Name</label>
             <input id="restaurantName" class="form-control" type="text" th:field="*{restaurantName}" required autofocus="autofocus" />
-            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect restaurant name</span>
+            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{restaurantName}">Incorrect Restaurant Name</span>
         </div><br>
         <div class="input-group">
-            <label class="control-label" th:for="seatName" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.seatName}"
+            <label class="control-label" th:for="seatName"
             >Seat Name</label><br>
-            <!--/*@thymesVar id="seatName" type="pl.warkoczewski.foodspot.model.enums.SEAT_NAME"*/-->
             <select th:field="*{seatName}">
-                <!--/*@thymesVar id="values" type="pl.warkoczewski.foodspot.model.enums.SEAT_NAME"*/-->
-                <option th:each="seatName : ${T(pl.warkoczewski.foodspot.model.enums.SEAT_NAME).values()}" th:text="${seatName}" th:value="${seatName}"></option>
+                <!--/*@thymesVar id="seatName" type="pl.warkoczewski.foodspot.model.enums.SEAT_NAME"*/-->
+                <option th:each="seat_Name : ${T(pl.warkoczewski.foodspot.model.enums.SEAT_NAME).values()}" th:text="${seat_Name}" th:value="${seat_Name}"></option>
             </select>
         </div><br>
-        <div class="input-group">
-            <label class="control-label" for="amount" th:text="#{pages.restaurants.restaurant.book.form.restaurantBookingDTO.amount}"
-            >Amount</label>
-            <input id="amount" class="form-control" type="text" th:field="*{amount}" required autofocus="autofocus" />
-            <span style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{amount}">Incorrect restaurant name</span>
-        </div><br>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Book</button>
-        </div>
     </form>
 </div>
 <footer th:replace="~{fragments/signedIn :: footerFragment}"></footer>

@@ -41,6 +41,21 @@ public class RestaurantController {
         modelAndView.setViewName("restaurant/restaurant");
         return modelAndView;
     }
+    @GetMapping("/restaurant/book")
+    public ModelAndView displayBookingPage(ModelAndView modelAndView){
+        modelAndView.addObject("restaurantBookingDTO", new RestaurantBookingDTO());
+        modelAndView.addObject("seatNames", SEAT_NAME.values());
+        modelAndView.setViewName("restaurant/book");
+        return modelAndView;
+    }
+    @PostMapping("restaurant/book")
+    public ModelAndView processBookingPage(@ModelAttribute RestaurantBookingDTO bookingDTO, ModelAndView modelAndView, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            modelAndView.setViewName("restaurant/book");
+            return modelAndView;
+        }
+        return modelAndView;
+    }
 
 
 
