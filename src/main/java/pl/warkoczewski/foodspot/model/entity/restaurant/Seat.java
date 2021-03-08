@@ -1,6 +1,6 @@
 package pl.warkoczewski.foodspot.model.entity.restaurant;
 
-import pl.warkoczewski.foodspot.model.entity.BaseEntity;
+import pl.warkoczewski.foodspot.model.entity.base.BaseEntity;
 import pl.warkoczewski.foodspot.model.enums.SEAT_NAME;
 
 import javax.persistence.*;

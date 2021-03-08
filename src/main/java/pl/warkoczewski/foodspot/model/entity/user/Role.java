@@ -2,12 +2,9 @@ package pl.warkoczewski.foodspot.model.entity.user;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import pl.warkoczewski.foodspot.model.entity.BaseEntity;
+import pl.warkoczewski.foodspot.model.entity.base.BaseEntity;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity(name = "roles")
 @Table(name = "roles")

@@ -21,11 +21,6 @@ public class DefaultRestaurantService implements RestaurantService {
         this.seatService = seatService;
     }
     @Override
-    public Restaurant createRestaurant(RestaurantBookingDTO restaurantBookingDTO){
-        Restaurant restaurant = new Restaurant();
-        return restaurantRepository.save(restaurant);
-    }
-    @Override
     public List<Restaurant> addAllRestaurants(List<Restaurant> restaurants) {
         return restaurantRepository.saveAll(restaurants);
     }

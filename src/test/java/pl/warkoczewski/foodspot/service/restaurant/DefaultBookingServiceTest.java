@@ -15,7 +15,7 @@ public class DefaultBookingServiceTest {
     DefaultBookingService bookingService;
 
     @Test
-    public void bookRestaurant_Should_Book_ONE_Seat_In_Restaurant_La_Bamba_And_Return_Available_ONE_Seat_Amount_Equal_2() {
+    public void bookRestaurant_Should_Book_ONE_Seat_In_Restaurant_La_Rica_And_Return_Available_ONE_Seat_Amount_Equal_3() {
         RestaurantBookingDTO bookingDTO = new RestaurantBookingDTO();
         boolean b = bookingService.bookRestaurant(bookingDTO);
     }

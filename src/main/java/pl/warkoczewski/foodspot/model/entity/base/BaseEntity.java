@@ -1,4 +1,4 @@
-package pl.warkoczewski.foodspot.model.entity;
+package pl.warkoczewski.foodspot.model.entity.base;
 
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;

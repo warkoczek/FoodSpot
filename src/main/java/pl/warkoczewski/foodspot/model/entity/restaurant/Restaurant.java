@@ -1,7 +1,7 @@
 package pl.warkoczewski.foodspot.model.entity.restaurant;
 
 
-import pl.warkoczewski.foodspot.model.entity.BaseEntity;
+import pl.warkoczewski.foodspot.model.entity.base.BaseEntity;
 
 import javax.persistence.Entity;
 
