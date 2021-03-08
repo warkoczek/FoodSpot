@@ -9,6 +9,11 @@
 <header  th:replace="~{fragments/signedIn :: headerFragment}"></header><br><br><br>
 <h1>Booking</h1>
 <div class="container">
+    <div>
+        <a th:href="@{/restaurants/restaurant/view/{name}(name=${restaurantDisplayDTO.getName()})}">
+            <button type="submit" class="btn btn-success" name="cancel">Back to the Restaurant</button>
+        </a>
+    </div><br><br>
     <form th:action="@{/restaurants/restaurant/book}" method="post" th:object="${restaurantBookingDTO}">
         <div class="input-group">
             <label class="control-label" for="restaurantName"
@@ -31,10 +36,9 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success">Book</button>
         </div>
+
     </form>
-    <div class="form-group">
-        <button type="submit" th:href="@{/restaurants/restaurant/view/{name}(name= ${restaurantDisplayDTO.getName()})}">Cancel</button>
-    </div>
+
 
 </div>
 <footer th:replace="~{fragments/signedIn :: footerFragment}"></footer>

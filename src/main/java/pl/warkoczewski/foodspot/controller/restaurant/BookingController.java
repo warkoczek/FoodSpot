@@ -17,23 +17,5 @@ public class BookingController {
         this.restaurantService = restaurantService;
     }
 
-    @GetMapping("/book/{name}")
-    public ModelAndView displayBookingPage(@PathVariable(value = "name") String name, ModelAndView modelAndView){
-        restaurantService.getRestaurantByName(name).ifPresent(restaurantDisplayDTO
-                -> { modelAndView.addObject("restaurantDisplayDTO", restaurantDisplayDTO);
-            modelAndView.addObject("restaurantBookingDTO", new RestaurantBookingDTO());
-            modelAndView.addObject("seatNames", SEAT_NAME.values());
-            modelAndView.setViewName("restaurant/book");
-        });
-        return modelAndView;
-    }
-    @PostMapping("/book")
-    public ModelAndView processBookingPage(@ModelAttribute RestaurantBookingDTO bookingDTO
-            , ModelAndView modelAndView, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            modelAndView.setViewName("restaurant/book");
-            return modelAndView;
-        }
-        return modelAndView;
-    }
+
 }

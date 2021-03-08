@@ -40,7 +40,7 @@ public class RestaurantController {
                 });
         modelAndView.setViewName("restaurant/restaurant");
         return modelAndView;
-    }/*
+    }
     @GetMapping("/restaurant/book/{name}")
     public ModelAndView displayBookingPage(@PathVariable(value = "name") String name, ModelAndView modelAndView){
         restaurantService.getRestaurantByName(name).ifPresent(restaurantDisplayDTO
@@ -52,14 +52,14 @@ public class RestaurantController {
         return modelAndView;
     }
     @PostMapping("restaurant/book")
-    public ModelAndView processBookingPage(@ModelAttribute RestaurantBookingDTO bookingDTO, ModelAndView modelAndView, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            modelAndView.setViewName("restaurant/book");
-            return modelAndView;
+    public ModelAndView processBookingPage(@ModelAttribute RestaurantBookingDTO bookingDTO,
+            ModelAndView modelAndView, BindingResult bindingResult){
+        if(bindingResult.hasErrors() ){
+            modelAndView.setViewName("restaurant/restaurant");
         }
         return modelAndView;
     }
-    */
+
 
 
 
